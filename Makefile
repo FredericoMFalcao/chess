@@ -15,3 +15,6 @@ pieces.o : pieces/main.c pieces/chess_pieces.h pieces/allowed_moves.c pieces/pos
 
 verbal_comments.o: verbal_comments/verbal_comments.c verbal_comments/verbal_comments.h main.h
 		$(CC) -c -o verbal_comments.o verbal_comments/verbal_comments.c
+
+test:
+	echo
