@@ -1,8 +1,8 @@
-CC=gcc
+CC=gcc -std=c99
 objects = main.o boards.o pieces.o verbal_comments.o
 
 chess: $(objects)
-	$(CC) -o chess $(objects) -std=c99
+	$(CC) -o chess $(objects)
 	
 main.o : main.c main.h hint.c parse_command.c
 	$(CC) -c -o main.o main.c
