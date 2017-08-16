@@ -26,7 +26,7 @@ else
 }
 
 // 1. Save current command
-$previous_commands[] = $_POST['command'];
+$previous_commands[] = $_GET['command'];
 file_put_contents(__DIR__."/".md5($_SESSION['id']).".txt", implode("\n",$previous_commands));
 
 ?>
@@ -34,9 +34,6 @@ file_put_contents(__DIR__."/".md5($_SESSION['id']).".txt", implode("\n",$previou
 <head><title>Chess Game</title>
 </head>
 <body>
-<form method="GET" action="/">
-Command: <input type="text" name="command"/>
-</form>
 <pre>
 <?php
 
@@ -75,5 +72,9 @@ else
 
 ?>
 </pre>
+<form method="GET" action="/">
+Command: <input type="text" name="command"/>
+</form>
+
 </body>
 </html>
