@@ -62,7 +62,7 @@ if (is_resource($process)) {
 
     fclose($pipes[0]);
 
-    echo stream_get_contents($pipes[1]);
+    echo stream_get_contents($pipes[1],1024);
     fclose($pipes[1]);
 
     // It is important that you close any pipes before calling
