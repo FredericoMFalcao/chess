@@ -26,8 +26,11 @@ else
 }
 
 // 1. Save current command
-$previous_commands[] = $_GET['command'];
-file_put_contents(__DIR__."/".md5($_SESSION['id']).".txt", implode("\n",$previous_commands));
+if (isset($_GET['command']))
+{
+	$previous_commands[] = $_GET['command'];
+	file_put_contents(__DIR__."/".md5($_SESSION['id']).".txt", implode("\n",$previous_commands));	
+}
 
 ?>
 <html>
