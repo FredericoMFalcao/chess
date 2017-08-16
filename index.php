@@ -27,7 +27,7 @@ else
 
 // 1. Save current command
 $previous_commands[] = $_POST['command'];
-file_put_contents(__DIR__."/".md5($_SESSION['id']).".txt"), implode("\n",$previous_commands));
+file_put_contents(__DIR__."/".md5($_SESSION['id']).".txt", implode("\n",$previous_commands));
 
 ?>
 <html>
