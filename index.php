@@ -20,8 +20,11 @@
 		.king {background-position-y: -240px;}
 		.pawn {background-position-y: -300px;}
 		
+		.selected{border:1px dashed #7F7F7F;}
+		
 		</style>
 </head>
+<script src="/jQuery.js"></script>
 <body>
 <table boder="1">	
 	<tbody>
@@ -111,6 +114,14 @@
 <form method="GET" action="/">
 Command: <input type="text" name="command"/>
 </form>
-
+<script>
+	jQuery('div.chess_piece').on('click', function() {
+		if(!$(this).hasClass('selected'))
+		{
+			$('div.selected').removeClass('selected');
+			$(this).addClass('selected');
+		}
+	});
+</script>
 </body>
 </html>
