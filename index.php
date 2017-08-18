@@ -64,15 +64,21 @@ if (is_resource($process)) {
 
 	$output_buffer = "";
 
+	// Set STDIN to non-blocking
+	stream_set_blocking($pipes[1], 0);
+	
 	$char = stream_get_contents($pipes[1],1);
 	$output_buffer .= $char;
+	$i = 0;
 	
-	while ($char != ">" && $char != "?")
+	while ($char != ">" && $char != "?" && $i < 1024)
 	{	
 		$char = stream_get_contents($pipes[1],1);
 		$output_buffer .= $char;
+		$i++;
 	}
-		
+	
+	echo $output_buffer;	
     fclose($pipes[1]);
 
     // It is important that you close any pipes before calling
