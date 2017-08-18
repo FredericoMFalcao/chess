@@ -33,7 +33,7 @@ unsigned int running_mode = 0;
 int main(int argc, char**argv)
 {
 	char *command = NULL;
-	char welcome_msg[1024];
+
 	size_t command_length = 0;
 
 	// Assign the running mode
@@ -51,16 +51,10 @@ int main(int argc, char**argv)
 	printf("\nWhat is the name of the first player? ");
 	fscanf(stdin,"%s",&player_1[0]);
 	
-	sprintf(welcome_msg,"say \"Hello and welcome to chess game %s\"",player_1);
-	system(welcome_msg);
-
 
 	printf("\nWhat is the name of the second player? ");
 	fscanf(stdin,"%s",&player_2[0]);
-	
-	sprintf(welcome_msg,"say \"Hello and welcome to chess game %s\"",player_2);
-	system(welcome_msg);
-	
+		
 	
 	// Make test 1
 	if (running_mode & RUNNING_MODE_TEST_1)

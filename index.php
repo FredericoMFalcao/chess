@@ -62,7 +62,17 @@ if (is_resource($process)) {
 
     fclose($pipes[0]);
 
-    echo stream_get_contents($pipes[1],1024);
+	$output_buffer = "";
+
+	$char = stream_get_contents($pipes[1],1);
+	$output_buffer .= $char;
+	
+	while ($char != ">" && $char != "?")
+	{	
+		$char = stream_get_contents($pipes[1],1);
+		$output_buffer .= $char;
+	}
+		
     fclose($pipes[1]);
 
     // It is important that you close any pipes before calling

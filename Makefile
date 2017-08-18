@@ -1,5 +1,5 @@
 CC=gcc -std=c99
-objects = main.o boards.o pieces.o verbal_comments.o
+objects = main.o boards.o pieces.o
 
 chess: $(objects)
 	$(CC) -o chess $(objects)
