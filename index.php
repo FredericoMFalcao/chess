@@ -75,6 +75,7 @@ if (is_resource($process)) {
 	{	
 		$char = stream_get_contents($pipes[1],1);
 		$output_buffer .= $char;
+		echo $i."\n";
 		$i++;
 	}
 	
