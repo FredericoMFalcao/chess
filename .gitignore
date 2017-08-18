@@ -1,2 +1,3 @@
 *.o
 ./chess
+.DS_Store
