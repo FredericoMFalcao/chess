@@ -1,38 +1,3 @@
-<?php session_start(); 
-//
-// SESSION MANAGEMENT
-//
-
-// 0. Get previous commands
-if (isset($_SESSION['id']))
-{
-	// User has logged in before
-	if (file_exists(__DIR__."/".md5($_SESSION['id']).".txt"))
-	{
-		// User has issued commands before		
-		$previous_commands = explode("\n", file_get_contents(__DIR__."/".md5($_SESSION['id']).".txt"));
-	}
-	else
-	{
-		$previous_commands = array();
-	}
-	
-}
-else
-{
-	// Fisrt time login
-	$_SESSION['id'] = md5(rand());
-	$previous_commands = array();
-}
-
-// 1. Save current command
-if (isset($_GET['command']))
-{
-	$previous_commands[] = $_GET['command'];
-	file_put_contents(__DIR__."/".md5($_SESSION['id']).".txt", implode("\n",$previous_commands));	
-}
-
-?>
 <html>
 <head><title>Chess Game</title>
 	<style>
@@ -61,34 +26,24 @@ if (isset($_GET['command']))
 <table boder="1">	
 	<tbody>
 		<tr>
-			<td><div class="chess_piece black tower"></div></td>
-			<td><div class="chess_piece black horse"></div></td>
-			<td><div class="chess_piece black bishop"></div></td>
-			<td><div class="chess_piece black queen"></div></td>
-			<td><div class="chess_piece black king"></div></td>
-			<td><div class="chess_piece black bishop"></div></td>
-			<td><div class="chess_piece black horse"></div></td>
-			<td><div class="chess_piece black tower"></div></td>
+			<td><div draggable="true"  class="chess_piece black tower"></div></td>
+			<td><div draggable="true"  class="chess_piece black horse"></div></td>
+			<td><div draggable="true"  class="chess_piece black bishop"></div></td>
+			<td><div draggable="true"  class="chess_piece black queen"></div></td>
+			<td><div draggable="true"  class="chess_piece black king"></div></td>
+			<td><div draggable="true"  class="chess_piece black bishop"></div></td>
+			<td><div draggable="true"  class="chess_piece black horse"></div></td>
+			<td><div draggable="true"  class="chess_piece black tower"></div></td>
 		</tr>
 		<tr>
-			<td><div class="chess_piece black pawn"></div></td>
-			<td><div class="chess_piece black pawn"></div></td>
-			<td><div class="chess_piece black pawn"></div></td>
-			<td><div class="chess_piece black pawn"></div></td>
-			<td><div class="chess_piece black pawn"></div></td>
-			<td><div class="chess_piece black pawn"></div></td>
-			<td><div class="chess_piece black pawn"></div></td>
-			<td><div class="chess_piece black pawn"></div></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td><div draggable="true"  class="chess_piece black pawn"></div></td>
+			<td><div draggable="true"  class="chess_piece black pawn"></div></td>
+			<td><div draggable="true"  class="chess_piece black pawn"></div></td>
+			<td><div draggable="true"  class="chess_piece black pawn"></div></td>
+			<td><div draggable="true"  class="chess_piece black pawn"></div></td>
+			<td><div draggable="true"  class="chess_piece black pawn"></div></td>
+			<td><div draggable="true"  class="chess_piece black pawn"></div></td>
+			<td><div draggable="true"  class="chess_piece black pawn"></div></td>
 		</tr>
 		<tr>
 			<td></td>
@@ -121,24 +76,34 @@ if (isset($_GET['command']))
 			<td></td>
 		</tr>
 		<tr>
-			<td><div class="chess_piece white pawn"></div></td>
-			<td><div class="chess_piece white pawn"></div></td>
-			<td><div class="chess_piece white pawn"></div></td>
-			<td><div class="chess_piece white pawn"></div></td>
-			<td><div class="chess_piece white pawn"></div></td>
-			<td><div class="chess_piece white pawn"></div></td>
-			<td><div class="chess_piece white pawn"></div></td>
-			<td><div class="chess_piece white pawn"></div></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
 		</tr>
 		<tr>
-			<td><div class="chess_piece white tower"></div></td>
-			<td><div class="chess_piece white horse"></div></td>
-			<td><div class="chess_piece white bishop"></div></td>
-			<td><div class="chess_piece white queen"></div></td>
-			<td><div class="chess_piece white king"></div></td>
-			<td><div class="chess_piece white bishop"></div></td>
-			<td><div class="chess_piece white horse"></div></td>
-			<td><div class="chess_piece white tower"></div></td>
+			<td><div draggable="true"  class="chess_piece white pawn"></div></td>
+			<td><div draggable="true"  class="chess_piece white pawn"></div></td>
+			<td><div draggable="true"  class="chess_piece white pawn"></div></td>
+			<td><div draggable="true"  class="chess_piece white pawn"></div></td>
+			<td><div draggable="true"  class="chess_piece white pawn"></div></td>
+			<td><div draggable="true"  class="chess_piece white pawn"></div></td>
+			<td><div draggable="true"  class="chess_piece white pawn"></div></td>
+			<td><div draggable="true"  class="chess_piece white pawn"></div></td>
+		</tr>
+		<tr>
+			<td><div draggable="true"  class="chess_piece white tower"></div></td>
+			<td><div draggable="true"  class="chess_piece white horse"></div></td>
+			<td><div draggable="true"  class="chess_piece white bishop"></div></td>
+			<td><div draggable="true"  class="chess_piece white queen"></div></td>
+			<td><div draggable="true"  class="chess_piece white king"></div></td>
+			<td><div draggable="true"  class="chess_piece white bishop"></div></td>
+			<td><div draggable="true"  class="chess_piece white horse"></div></td>
+			<td><div draggable="true"  class="chess_piece white tower"></div></td>
 		</tr>
 	</tbody>
 </table>		
