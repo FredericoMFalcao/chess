@@ -78,14 +78,15 @@ void parse_command(char *command)
 		return ;
 	}
 	
-	else if(strncmp(command, "print", 5) == 0)
-	{
-		print_board(&real_board);
-	}
 	else if(strncmp(command, "print-json", 10) == 0)
 	{
 		print_board_json(&real_board);
 	}	
+
+	else if(strncmp(command, "print", 5) == 0)
+	{
+		print_board(&real_board);
+	}
 	
 	else if(strncmp(command, "hint", 4) == 0)
 	{
