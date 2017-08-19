@@ -86,6 +86,11 @@ void parse_command(const char *command)
 	{
 		hint(&real_board);
 	}
+	else if(strncmp(command, "save", 4) == 0)
+	{
+		save_board_to_file("temp.bin",&real_board);
+	}
+	
 	
 	else
 		printf("Unrecognized command : %s\nType 'quit' to exit.\n",command); 

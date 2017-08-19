@@ -58,3 +58,8 @@ extern char player_1[255];
 extern char player_2[255];
 extern CHESS_BOARD real_board;
 extern unsigned int running_mode;
+
+// 5. Declare global functions
+// ------------------------
+void load_board_from_file(char *filename, void *real_board);
+void save_board_to_file(char *filename, void *real_board);
