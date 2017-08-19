@@ -43,87 +43,87 @@
 	 <div class="tab-content">
 		<div role="tabpanel" class="tab-pane active" id="gui"  >
 
-			<table boder="1">
+			<table boder="1" id="board">
 				<tbody>
 					<tr>
-						<td><div draggable="true"  class="chess_piece black tower"></div></td>
-						<td><div draggable="true"  class="chess_piece black horse"></div></td>
-						<td><div draggable="true"  class="chess_piece black bishop"></div></td>
-						<td><div draggable="true"  class="chess_piece black queen"></div></td>
-						<td><div draggable="true"  class="chess_piece black king"></div></td>
-						<td><div draggable="true"  class="chess_piece black bishop"></div></td>
-						<td><div draggable="true"  class="chess_piece black horse"></div></td>
-						<td><div draggable="true"  class="chess_piece black tower"></div></td>
+						<td id="a8" ><div class="chess_piece black tower"></div></td>
+						<td id="b8"><div class="chess_piece black horse"></div></td>
+						<td id="c8"><div class="chess_piece black bishop"></div></td>
+						<td id="d8"><div class="chess_piece black queen"></div></td>
+						<td id="e8"><div class="chess_piece black king"></div></td>
+						<td id="f8"><div class="chess_piece black bishop"></div></td>
+						<td id="g8"><div class="chess_piece black horse"></div></td>
+						<td id="h8"><div class="chess_piece black tower"></div></td>
 					</tr>
 					<tr>
-						<td><div draggable="true"  class="chess_piece black pawn"></div></td>
-						<td><div draggable="true"  class="chess_piece black pawn"></div></td>
-						<td><div draggable="true"  class="chess_piece black pawn"></div></td>
-						<td><div draggable="true"  class="chess_piece black pawn"></div></td>
-						<td><div draggable="true"  class="chess_piece black pawn"></div></td>
-						<td><div draggable="true"  class="chess_piece black pawn"></div></td>
-						<td><div draggable="true"  class="chess_piece black pawn"></div></td>
-						<td><div draggable="true"  class="chess_piece black pawn"></div></td>
+						<td id="a7"><div class="chess_piece black pawn"></div></td>
+						<td id="b7"><div class="chess_piece black pawn"></div></td>
+						<td id="c7"><div class="chess_piece black pawn"></div></td>
+						<td id="d7"><div class="chess_piece black pawn"></div></td>
+						<td id="e7"><div class="chess_piece black pawn"></div></td>
+						<td id="f7"><div class="chess_piece black pawn"></div></td>
+						<td id="g7"><div class="chess_piece black pawn"></div></td>
+						<td id="h7"><div class="chess_piece black pawn"></div></td>
 					</tr>
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td id="a6"></td>
+						<td id="b6"></td>
+						<td id="c6"></td>
+						<td id="d6"></td>
+						<td id="e6"></td>
+						<td id="f6"></td>
+						<td id="g6"></td>
+						<td id="h6"></td>
 					</tr>
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td id="a5"></td>
+						<td id="b5"></td>
+						<td id="c5"></td>
+						<td id="d5"></td>
+						<td id="e5"></td>
+						<td id="f5"></td>
+						<td id="g5"></td>
+						<td id="h5"></td>
 					</tr>
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td id="a4"></td>
+						<td id="b4"></td>
+						<td id="c4"></td>
+						<td id="d4"></td>
+						<td id="e4"></td>
+						<td id="f4"></td>
+						<td id="g4"></td>
+						<td id="h4"></td>
 					</tr>
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td id="a3"></td>
+						<td id="b3"></td>
+						<td id="c3"></td>
+						<td id="d3"></td>
+						<td id="e3"></td>
+						<td id="f3"></td>
+						<td id="g3"></td>
+						<td id="h3"></td>
 					</tr>
 					<tr>
-						<td><div draggable="true"  class="chess_piece white pawn"></div></td>
-						<td><div draggable="true"  class="chess_piece white pawn"></div></td>
-						<td><div draggable="true"  class="chess_piece white pawn"></div></td>
-						<td><div draggable="true"  class="chess_piece white pawn"></div></td>
-						<td><div draggable="true"  class="chess_piece white pawn"></div></td>
-						<td><div draggable="true"  class="chess_piece white pawn"></div></td>
-						<td><div draggable="true"  class="chess_piece white pawn"></div></td>
-						<td><div draggable="true"  class="chess_piece white pawn"></div></td>
+						<td id="a2"><div class="chess_piece white pawn"></div></td>
+						<td id="b2"><div class="chess_piece white pawn"></div></td>
+						<td id="c2"><div class="chess_piece white pawn"></div></td>
+						<td id="d2"><div class="chess_piece white pawn"></div></td>
+						<td id="e2"><div class="chess_piece white pawn"></div></td>
+						<td id="f2"><div class="chess_piece white pawn"></div></td>
+						<td id="g2"><div class="chess_piece white pawn"></div></td>
+						<td id="h2"><div class="chess_piece white pawn"></div></td>
 					</tr>
 					<tr>
-						<td><div draggable="true"  class="chess_piece white tower"></div></td>
-						<td><div draggable="true"  class="chess_piece white horse"></div></td>
-						<td><div draggable="true"  class="chess_piece white bishop"></div></td>
-						<td><div draggable="true"  class="chess_piece white queen"></div></td>
-						<td><div draggable="true"  class="chess_piece white king"></div></td>
-						<td><div draggable="true"  class="chess_piece white bishop"></div></td>
-						<td><div draggable="true"  class="chess_piece white horse"></div></td>
-						<td><div draggable="true"  class="chess_piece white tower"></div></td>
+						<td id="a1"><div class="chess_piece white tower"></div></td>
+						<td id="b1"><div class="chess_piece white horse"></div></td>
+						<td id="c1"><div class="chess_piece white bishop"></div></td>
+						<td id="d1"><div class="chess_piece white queen"></div></td>
+						<td id="e1"><div class="chess_piece white king"></div></td>
+						<td id="f1"><div class="chess_piece white bishop"></div></td>
+						<td id="g1"><div class="chess_piece white horse"></div></td>
+						<td id="h1"><div class="chess_piece white tower"></div></td>
 					</tr>
 				</tbody>
 			</table>		
@@ -141,7 +141,7 @@
 
 
 <script>
-	jQuery('div.chess_piece').on('click', function() {
+	jQuery('table#board td').on('click', function() {
 		if(!$(this).hasClass('selected'))
 		{
 			$('div.selected').removeClass('selected');
