@@ -1,5 +1,12 @@
 <html>
-<head><title>Chess Game</title>
+<head>
+	<title>Chess Game</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="/jQuery.js"></script>
 	<style>
 		table, th, td {
 		    border: 1px solid #bfbfbf;
@@ -26,6 +33,13 @@
 </head>
 <script src="/jQuery.js"></script>
 <body>
+	 <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#gui" role="tab" data-toggle="tab">GUI</a></li>
+    <li role="presentation"><a href="#cli"  role="tab" data-toggle="tab">CLI</a></li>
+  </ul>
+<div class="tab-content">	
+	<div id="#gui" >
 <table boder="1">	
 	<tbody>
 		<tr>
@@ -110,10 +124,16 @@
 		</tr>
 	</tbody>
 </table>		
-
-<form method="GET" action="/">
+	</div>
+	<div id="cli">
+		<form method="GET" action="/">
 Command: <input type="text" name="command"/>
 </form>
+
+	</div>
+	</div>
+
+
 <script>
 	jQuery('div.chess_piece').on('click', function() {
 		if(!$(this).hasClass('selected'))
@@ -123,5 +143,6 @@ Command: <input type="text" name="command"/>
 		}
 	});
 </script>
+
 </body>
 </html>

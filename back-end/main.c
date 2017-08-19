@@ -26,6 +26,8 @@ char player_2[255] = "";
 char filename[255] = "";
 CHESS_BOARD real_board;
 unsigned int running_mode = 0;
+int board_loaded = 0;
+
 
 
 
@@ -47,13 +49,17 @@ int main(int argc, char**argv)
 		if (strcmp(argv[i],"--test-1") == 0) running_mode |= RUNNING_MODE_TEST_1;		
 		if (strncmp(argv[i],"--first-player=",14) == 0) strcpy(&player_1[0], &argv[i][15]);
 		if (strncmp(argv[i],"--second-player=",15) == 0) strcpy(&player_2[0], &argv[i][16]);
-		if (strncmp(argv[i],"--board-file=",12) == 0) strcpy(&filename[0], &argv[i][13]);
+		if (strncmp(argv[i],"--load-from-file=",17) == 0) {load_board_from_file(&argv[i][17], &real_board); board_loaded = 1;}
 	}
 
 
 	// Set the piecies in the inital locations
 	// acording to standard chess rules
-	initialize_board(&real_board);
+	if (!board_loaded)
+	{
+		initialize_board(&real_board);
+		board_loaded = 1;
+	}
 	
 	// Get the player's names
 	if (player_1[0] == 0)
@@ -139,6 +145,7 @@ void save_board_to_file(char *filename, void *real_board)
 
 	
 }
+
 
 
 short alpha_numeric(char a)

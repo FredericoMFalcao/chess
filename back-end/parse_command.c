@@ -1,9 +1,10 @@
 
-void parse_command(const char *command)
+void parse_command(char *command)
 {
 	int i;
 	POSITION start, end;
 	char *error;
+
 	
 	if(strcmp(command, "status") == 0)
 	{
@@ -77,6 +78,11 @@ void parse_command(const char *command)
 		return ;
 	}
 	
+	else if(strncmp(command, "print-json", 10) == 0)
+	{
+		print_board_json(&real_board);
+	}	
+
 	else if(strncmp(command, "print", 5) == 0)
 	{
 		print_board(&real_board);
@@ -88,9 +94,24 @@ void parse_command(const char *command)
 	}
 	else if(strncmp(command, "save", 4) == 0)
 	{
-		save_board_to_file("temp.bin",&real_board);
+
+		if(strncmp(command, "save ", 5) == 0)
+		{
+			
+			// Discard 'newline' character
+			for(int i=0; i < strlen(command); i++)
+				if (command[i] == '\n') command[i] = 0;
+			
+			save_board_to_file(&command[5], &real_board);
+			printf("Saved to %s\n", &command[5]);
+		}
+		else
+		{	
+			save_board_to_file("temp.bin", &real_board);
+			printf("Saved to temp.bin!\n");
+		}
 	}
-	
+
 	
 	else
 		printf("Unrecognized command : %s\nType 'quit' to exit.\n",command); 
