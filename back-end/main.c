@@ -25,6 +25,8 @@ char player_1[255];
 char player_2[255];
 CHESS_BOARD real_board;
 unsigned int running_mode = 0;
+int board_loaded = 0;
+
 
 
 
@@ -40,12 +42,17 @@ int main(int argc, char**argv)
 	for(int i = 1; i < argc; i++)
 	{
 		if (strcmp(argv[i],"--test-1") == 0) running_mode |= RUNNING_MODE_TEST_1;		
+		if (strncmp(argv[i],"--load-from-file=",17) == 0) {load_board_from_file(&argv[i][17], &real_board); board_loaded = 1;}
 	}
 
 
 	// Set the piecies in the inital locations
 	// acording to standard chess rules
-	initialize_board(&real_board);
+	if (!board_loaded)
+	{
+		initialize_board(&real_board);
+		board_loaded = 1;
+	}
 	
 	// Get the player's names
 	printf("\nWhat is the name of the first player? ");
@@ -78,6 +85,7 @@ int main(int argc, char**argv)
 	
 	return 0;
 }
+
 
 
 
