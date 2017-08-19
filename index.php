@@ -6,6 +6,7 @@
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="/jQuery.js"></script>
 	<style>
 		table, th, td {
 		    border: 1px solid #bfbfbf;
@@ -29,6 +30,13 @@
 		</style>
 </head>
 <body>
+	 <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#gui" role="tab" data-toggle="tab">GUI</a></li>
+    <li role="presentation"><a href="#cli"  role="tab" data-toggle="tab">CLI</a></li>
+  </ul>
+<div class="tab-content">	
+	<div id="#gui" >
 <table boder="1">	
 	<tbody>
 		<tr>
@@ -113,10 +121,14 @@
 		</tr>
 	</tbody>
 </table>		
-
-<form method="GET" action="/">
+	</div>
+	<div id="cli">
+		<form method="GET" action="/">
 Command: <input type="text" name="command"/>
 </form>
+
+	</div>
+	</div>
 
 </body>
 </html>
