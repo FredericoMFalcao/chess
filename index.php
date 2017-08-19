@@ -6,7 +6,7 @@
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="/jQuery.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
 
 	<style>
 		table, th, td {
@@ -33,106 +33,111 @@
 		</style>
 </head>
 <script src="/jQuery.js"></script>
-<body>
-	 <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#gui" role="tab" data-toggle="tab">GUI</a></li>
-    <li role="presentation"><a href="#cli"  role="tab" data-toggle="tab">CLI</a></li>
-  </ul>
-<div class="tab-content">	
-	<div id="#gui" >
-<table boder="1">	
-	<tbody>
-		<tr>
-			<td><div draggable="true"  class="chess_piece black tower"></div></td>
-			<td><div draggable="true"  class="chess_piece black horse"></div></td>
-			<td><div draggable="true"  class="chess_piece black bishop"></div></td>
-			<td><div draggable="true"  class="chess_piece black queen"></div></td>
-			<td><div draggable="true"  class="chess_piece black king"></div></td>
-			<td><div draggable="true"  class="chess_piece black bishop"></div></td>
-			<td><div draggable="true"  class="chess_piece black horse"></div></td>
-			<td><div draggable="true"  class="chess_piece black tower"></div></td>
-		</tr>
-		<tr>
-			<td><div draggable="true"  class="chess_piece black pawn"></div></td>
-			<td><div draggable="true"  class="chess_piece black pawn"></div></td>
-			<td><div draggable="true"  class="chess_piece black pawn"></div></td>
-			<td><div draggable="true"  class="chess_piece black pawn"></div></td>
-			<td><div draggable="true"  class="chess_piece black pawn"></div></td>
-			<td><div draggable="true"  class="chess_piece black pawn"></div></td>
-			<td><div draggable="true"  class="chess_piece black pawn"></div></td>
-			<td><div draggable="true"  class="chess_piece black pawn"></div></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td><div draggable="true"  class="chess_piece white pawn"></div></td>
-			<td><div draggable="true"  class="chess_piece white pawn"></div></td>
-			<td><div draggable="true"  class="chess_piece white pawn"></div></td>
-			<td><div draggable="true"  class="chess_piece white pawn"></div></td>
-			<td><div draggable="true"  class="chess_piece white pawn"></div></td>
-			<td><div draggable="true"  class="chess_piece white pawn"></div></td>
-			<td><div draggable="true"  class="chess_piece white pawn"></div></td>
-			<td><div draggable="true"  class="chess_piece white pawn"></div></td>
-		</tr>
-		<tr>
-			<td><div draggable="true"  class="chess_piece white tower"></div></td>
-			<td><div draggable="true"  class="chess_piece white horse"></div></td>
-			<td><div draggable="true"  class="chess_piece white bishop"></div></td>
-			<td><div draggable="true"  class="chess_piece white queen"></div></td>
-			<td><div draggable="true"  class="chess_piece white king"></div></td>
-			<td><div draggable="true"  class="chess_piece white bishop"></div></td>
-			<td><div draggable="true"  class="chess_piece white horse"></div></td>
-			<td><div draggable="true"  class="chess_piece white tower"></div></td>
-		</tr>
-	</tbody>
-</table>		
-	</div>
-	<div id="cli">
-		<form method="GET" action="/">
-Command: <input type="text" name="command"/>
-</form>
+<body class="container">
+<div>
+		 <!-- Nav tabs -->
+	  <ul class="nav nav-tabs" role="tablist">
+	    <li role="presentation" class="active"><a href="javascript:void(0);" data-target="#gui" role="tab" data-toggle="tab">GUI</a></li>
+	    <li role="presentation"><a href="javascript:void(0);" data-target="#cli"  role="tab" data-toggle="tab">CLI</a></li>
+	  </ul>
+	 <div class="tab-content">
+		<div role="tabpanel" class="tab-pane active" id="gui"  >
 
-	</div>
-	</div>
+			<table boder="1">
+				<tbody>
+					<tr>
+						<td><div draggable="true"  class="chess_piece black tower"></div></td>
+						<td><div draggable="true"  class="chess_piece black horse"></div></td>
+						<td><div draggable="true"  class="chess_piece black bishop"></div></td>
+						<td><div draggable="true"  class="chess_piece black queen"></div></td>
+						<td><div draggable="true"  class="chess_piece black king"></div></td>
+						<td><div draggable="true"  class="chess_piece black bishop"></div></td>
+						<td><div draggable="true"  class="chess_piece black horse"></div></td>
+						<td><div draggable="true"  class="chess_piece black tower"></div></td>
+					</tr>
+					<tr>
+						<td><div draggable="true"  class="chess_piece black pawn"></div></td>
+						<td><div draggable="true"  class="chess_piece black pawn"></div></td>
+						<td><div draggable="true"  class="chess_piece black pawn"></div></td>
+						<td><div draggable="true"  class="chess_piece black pawn"></div></td>
+						<td><div draggable="true"  class="chess_piece black pawn"></div></td>
+						<td><div draggable="true"  class="chess_piece black pawn"></div></td>
+						<td><div draggable="true"  class="chess_piece black pawn"></div></td>
+						<td><div draggable="true"  class="chess_piece black pawn"></div></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><div draggable="true"  class="chess_piece white pawn"></div></td>
+						<td><div draggable="true"  class="chess_piece white pawn"></div></td>
+						<td><div draggable="true"  class="chess_piece white pawn"></div></td>
+						<td><div draggable="true"  class="chess_piece white pawn"></div></td>
+						<td><div draggable="true"  class="chess_piece white pawn"></div></td>
+						<td><div draggable="true"  class="chess_piece white pawn"></div></td>
+						<td><div draggable="true"  class="chess_piece white pawn"></div></td>
+						<td><div draggable="true"  class="chess_piece white pawn"></div></td>
+					</tr>
+					<tr>
+						<td><div draggable="true"  class="chess_piece white tower"></div></td>
+						<td><div draggable="true"  class="chess_piece white horse"></div></td>
+						<td><div draggable="true"  class="chess_piece white bishop"></div></td>
+						<td><div draggable="true"  class="chess_piece white queen"></div></td>
+						<td><div draggable="true"  class="chess_piece white king"></div></td>
+						<td><div draggable="true"  class="chess_piece white bishop"></div></td>
+						<td><div draggable="true"  class="chess_piece white horse"></div></td>
+						<td><div draggable="true"  class="chess_piece white tower"></div></td>
+					</tr>
+				</tbody>
+			</table>		
+		</div><!-- /#gui -->
+
+		<div role="tabpanel" class="tab-pane" id="cli"  >
+
+			<form method="GET" action="/">Command: <input type="text" name="command"/></form>
+		</div><!-- /#cli -->
+	</div><!-- /.tab-content -->
+</div>
+
+
+
 
 
 <script>
