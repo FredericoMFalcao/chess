@@ -104,48 +104,6 @@ int main(int argc, char**argv)
 	return 0;
 }
 
-void load_board_from_file(char *filename, void *board)
-{
-	unsigned int i = 0; 
-	int c;
-	FILE *board_file;
-
-	if (!(board_file = fopen(filename, "r")))
-	{	
-		printf("ERROR: Could not open board file. %s\n", filename);
-	}
-	else
-	{
-		while((c = fgetc(board_file)) != EOF )
-		{
-			memset(board+i, (char)c,1);
-			i++;
-		}
-		
-		fclose(board_file);
-	}
-	
-}
-
-void save_board_to_file(char *filename, void *real_board)
-{
-	FILE *fp;
-	unsigned char c;
-	if ((fp = fopen(filename,"w")) == 0)
-	{	printf("ERROR: Could not save board state to file : %s", filename);
-		return;
-	}
-	
-	for(unsigned int i = 0;  i < sizeof(CHESS_BOARD); i++)
-	{
-		c = *((char*)&real_board + i);
-		printf("val: %d\n", c);
-		fputc(c, fp);
-	}
-
-	
-}
-
 
 
 short alpha_numeric(char a)
