@@ -1,3 +1,4 @@
 *.o
 ./chess
 .DS_Store
+Icon?
