@@ -28,7 +28,7 @@
 		.king {background-position-y: -240px;}
 		.pawn {background-position-y: -300px;}
 		
-		.selected{border:1px dashed #7F7F7F;}
+		.selected{border:2px dashed #7F7F7F;}
 		
 		</style>
 </head>
@@ -141,11 +141,45 @@
 
 
 <script>
+	window.fromCell = "";
+	window.toCell = "";
 	jQuery('table#board td').on('click', function() {
 		if(!$(this).hasClass('selected'))
 		{
-			$('div.selected').removeClass('selected');
+			// Save the id of the cell clicked
+			if (window.fromCell == "")
+				window.fromCell = $(this).attr('id');
+			else
+				window.toCell = $(this).attr('id');
+
+			// Add the styling class ('dashed border')
 			$(this).addClass('selected');
+
+			// Wait half a second
+			window.setTimeout(function(){
+				// 
+				if ($('td.selected').length == 2)
+				{
+					// Action
+					// ----------------
+					
+					// Move the piece
+					$('#'+window.fromCell+' div').appendTo($('#'+window.toCell));
+					
+
+					$('td.selected').removeClass('selected');
+					window.fromCell = "";
+					window.toCell = "";
+					
+				}
+			},500);
+
+
+		}
+		else
+		{	
+			$(this).removeClass('selected');
+			window.fromCell = "";
 		}
 	});
 </script>
