@@ -14,6 +14,7 @@
 		}
 
 		td:nth-child(even) {background-color:#D8D8D8;}
+		tr:nth-child(even) td {background-color:#E5E5E5;}
 		td {height:60px;width:60px;}
 		
 		.chess_piece {height:60px; width:60px; background-image:url('/chess_pieces.png'); background-repeat:no-repeat;}
