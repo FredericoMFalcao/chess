@@ -1,6 +1,6 @@
 <?php
-
-passthru("git pull");
+header("Content-type: text/plain");
+passthru("GIT_WORK_TREE=/var/www/chessgame git pull");
 passthru("make");
 
 echo "\n HEAD: ";
