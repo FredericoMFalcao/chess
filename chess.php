@@ -10,16 +10,9 @@ session_start();
 if(!isset($_SESSION['id']))
 	$_SESSION['id'] = md5(rand());
 
-if (file_exists($_SESSION['id']."txt"))
-	$prev_commands = explode("\n", file_get_contents($_SESSION['id']."txt"));
-else
-	$prev_commands = array();
-
-if (isset($_POST['command']))
-	$prev_commands
-
-$_GET['load_from_file'] = $_SESSION['id'].".txt";
-
+if (!isset($_GET['save-to-file'])) $_GET['save-to-file'] = $_SESSION['id'].".bin";
+if (!isset($_GET['load-from-file']) 
+	&& file_exists($_SESSION['id'].".bin")) $_GET['load-from-file'] = $_SESSION['id'].".bin";
 
 // 3. Execute the "chess" file
 // 3.1 Pass the GET arguments as CLI arguments
