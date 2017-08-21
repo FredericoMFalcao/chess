@@ -141,57 +141,7 @@
 
 
 
-<script>
-	window.fromCell = "";
-	window.toCell = "";
-	jQuery('table#board td').on('click', function() {
-		if(!$(this).hasClass('selected'))
-		{
-			// Save the id of the cell clicked
-			if (window.fromCell == "")
-				window.fromCell = $(this).attr('id');
-			else
-				window.toCell = $(this).attr('id');
-
-			// Add the styling class ('dashed border')
-			$(this).addClass('selected');
-
-			// Wait half a second
-			window.setTimeout(function(){
-				// 
-				if ($('td.selected').length == 2)
-				{
-					// Action
-					// ----------------
-					
-					// Move the piece
-					$('#'+window.fromCell+' div').appendTo($('#'+window.toCell));
-					
-					// Eat piece
-					if ($('#'+window.toCell+' div').length == 2)
-					{
-						$('#'+window.toCell+' div:eq(0)').fadeOut(400, function(){
-							$(this).remove()
-						});
-					}
-					
-
-					$('td.selected').removeClass('selected');
-					window.fromCell = "";
-					window.toCell = "";
-					
-				}
-			},500);
-
-
-		}
-		else
-		{	
-			$(this).removeClass('selected');
-			window.fromCell = "";
-		}
-	});
-</script>
+<script src="movable_pieces.js"></script>
 
 </body>
 </html>

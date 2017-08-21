@@ -15,7 +15,7 @@
 
 #include "hint.c"
 #include "parse_command.c"
-#include "test-1.c"
+
 
 
 // 3. Initialize global variables
@@ -27,7 +27,7 @@ char filename[255] = "";
 CHESS_BOARD real_board;
 unsigned int running_mode = 0;
 int board_loaded = 0;
-
+int exec_mode = EXEC_MODE_PROMPT;
 
 
 
@@ -50,6 +50,7 @@ int main(int argc, char**argv)
 		if (strncmp(argv[i],"--first-player=",14) == 0) strcpy(&player_1[0], &argv[i][15]);
 		if (strncmp(argv[i],"--second-player=",15) == 0) strcpy(&player_2[0], &argv[i][16]);
 		if (strncmp(argv[i],"--load-from-file=",17) == 0) {load_board_from_file(&argv[i][17], &real_board); board_loaded = 1;}
+		if (strncmp(argv[i],"--script",8) == 0) {exec_mode = EXEC_MODE_SCRIPT;}
 	}
 
 
@@ -79,24 +80,35 @@ int main(int argc, char**argv)
 	{
 		load_board_from_file(filename, &real_board);
 	}
-		
 	
-	// Make test 1
-	if (running_mode & RUNNING_MODE_TEST_1)
+	
+	// if program is being executed in prompt mode		
+	if (exec_mode  == EXEC_MODE_PROMPT)
 	{
-		return test_1();
-		
-	}		
-	
-	printf("chess> ");
-	getline(&command,&command_length,stdin);
-	
-	while(strncmp("quit",command,4) != 0)
-	{
-		parse_command(command);
-		
 		printf("chess> ");
 		getline(&command,&command_length,stdin);
+	
+		while(strncmp("quit",command,4) != 0)
+		{
+			parse_command(command);
+		
+			printf("chess> ");
+			getline(&command,&command_length,stdin);
+		
+		}
+		
+		
+	}
+	
+	
+	// if program is being executed in script mode
+	if (exec_mode == EXEC_MODE_SCRIPT)
+	{
+		
+		while(getline(&command,&command_length,stdin) > 0)
+		{
+			parse_command(command);
+		}						
 		
 	}
 	

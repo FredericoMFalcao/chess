@@ -59,5 +59,13 @@ extern char player_2[255];
 extern CHESS_BOARD real_board;
 extern unsigned int running_mode;
 
+
 // 5. Declare global functions
 // ------------------------
+
+
+// 6. Declare EXEC modes
+// ------------------------
+
+#define EXEC_MODE_PROMPT 0
+#define EXEC_MODE_SCRIPT 1
