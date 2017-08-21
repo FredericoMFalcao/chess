@@ -166,6 +166,14 @@
 					// Move the piece
 					$('#'+window.fromCell+' div').appendTo($('#'+window.toCell));
 					
+					// Eat piece
+					if ($('#'+window.toCell+' div').length == 2)
+					{
+						$('#'+window.toCell+' div:eq(0)').fadeOut(400, function(){
+							$(this).remove()
+						});
+					}
+					
 
 					$('td.selected').removeClass('selected');
 					window.fromCell = "";
