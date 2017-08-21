@@ -17,7 +17,7 @@
 		tr:nth-child(even) td {background-color:#E5E5E5;}
 		td {height:60px;width:60px;}
 		
-		.chess_piece {height:60px; width:60px; background-image:url('/chess_pieces.png'); background-repeat:no-repeat;}
+		.chess_piece {height:60px; width:60px; background-image:url('/front-end/chess_pieces.png'); background-repeat:no-repeat;}
 		
 		.black {background-position-x: 0px;}
 		.white {background-position-x: -60px;}
@@ -33,7 +33,7 @@
 		
 		</style>
 </head>
-<script src="/jQuery.js"></script>
+
 <body class="container">
 <div>
 		 <!-- Nav tabs -->
