@@ -8,7 +8,24 @@ This is a simple chess game written in PHP/C to demontrate and test different AI
 In the browser you can just click on pieces to direct the next move.
 In the console you can see type `print` to check the board state and type `move a2 a3` to move pieces.
 
-A code description on a per-file basis is given below.
+## Do you want to test it online?
+
+There is an online demo at (http://chessgame.dtdns.net)
+
+
+## Do you want to Install it?
+
+### Download it with:
+`git clone https://github.com/FredericoMFalcao/chess`
+
+### Compile it with:
+`make`
+
+### Run it with:
+`./chess`
+
+
+## Code description (per-file):
 
 ### Front-end (/front-end)
 
@@ -46,21 +63,3 @@ A code description on a per-file basis is given below.
 	- print - shows the board state
 	- hint - suggest a next move
 	- save - saves the board state
-
-
-
-## Do you want to test it online?
-
-There is an online demo at (http://chessgame.dtdns.net)
-
-
-## Do you want to Install it?
-
-### Download it with:
-`git clone https://github.com/FredericoMFalcao/chess`
-
-### Compile it with:
-`make`
-
-### Run it with:
-`./chess`
