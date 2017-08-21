@@ -47,24 +47,24 @@
 			<table boder="1" id="board">
 				<tbody>
 					<tr>
-						<td id="a8" ><div class="chess_piece black tower"></div></td>
-						<td id="b8"><div class="chess_piece black horse"></div></td>
-						<td id="c8"><div class="chess_piece black bishop"></div></td>
-						<td id="d8"><div class="chess_piece black queen"></div></td>
-						<td id="e8"><div class="chess_piece black king"></div></td>
-						<td id="f8"><div class="chess_piece black bishop"></div></td>
-						<td id="g8"><div class="chess_piece black horse"></div></td>
-						<td id="h8"><div class="chess_piece black tower"></div></td>
+						<td id="a8"></td>
+						<td id="b8"></td>
+						<td id="c8"></td>
+						<td id="d8"></td>
+						<td id="e8"></td>
+						<td id="f8"></td>
+						<td id="g8"></td>
+						<td id="h8"></td>
 					</tr>
 					<tr>
-						<td id="a7"><div class="chess_piece black pawn"></div></td>
-						<td id="b7"><div class="chess_piece black pawn"></div></td>
-						<td id="c7"><div class="chess_piece black pawn"></div></td>
-						<td id="d7"><div class="chess_piece black pawn"></div></td>
-						<td id="e7"><div class="chess_piece black pawn"></div></td>
-						<td id="f7"><div class="chess_piece black pawn"></div></td>
-						<td id="g7"><div class="chess_piece black pawn"></div></td>
-						<td id="h7"><div class="chess_piece black pawn"></div></td>
+						<td id="a7"></td>
+						<td id="b7"></td>
+						<td id="c7"></td>
+						<td id="d7"></td>
+						<td id="e7"></td>
+						<td id="f7"></td>
+						<td id="g7"></td>
+						<td id="h7"></td>
 					</tr>
 					<tr>
 						<td id="a6"></td>
@@ -107,24 +107,24 @@
 						<td id="h3"></td>
 					</tr>
 					<tr>
-						<td id="a2"><div class="chess_piece white pawn"></div></td>
-						<td id="b2"><div class="chess_piece white pawn"></div></td>
-						<td id="c2"><div class="chess_piece white pawn"></div></td>
-						<td id="d2"><div class="chess_piece white pawn"></div></td>
-						<td id="e2"><div class="chess_piece white pawn"></div></td>
-						<td id="f2"><div class="chess_piece white pawn"></div></td>
-						<td id="g2"><div class="chess_piece white pawn"></div></td>
-						<td id="h2"><div class="chess_piece white pawn"></div></td>
+						<td id="a2"></td>
+						<td id="b2"></td>
+						<td id="c2"></td>
+						<td id="d2"></td>
+						<td id="e2"></td>
+						<td id="f2"></td>
+						<td id="g2"></td>
+						<td id="h2"></td>
 					</tr>
 					<tr>
-						<td id="a1"><div class="chess_piece white tower"></div></td>
-						<td id="b1"><div class="chess_piece white horse"></div></td>
-						<td id="c1"><div class="chess_piece white bishop"></div></td>
-						<td id="d1"><div class="chess_piece white queen"></div></td>
-						<td id="e1"><div class="chess_piece white king"></div></td>
-						<td id="f1"><div class="chess_piece white bishop"></div></td>
-						<td id="g1"><div class="chess_piece white horse"></div></td>
-						<td id="h1"><div class="chess_piece white tower"></div></td>
+						<td id="a1"></td>
+						<td id="b1"></td>
+						<td id="c1"></td>
+						<td id="d1"></td>
+						<td id="e1"></td>
+						<td id="f1"></td>
+						<td id="g1"></td>
+						<td id="h1"></td>
 					</tr>
 				</tbody>
 			</table>		
@@ -132,7 +132,11 @@
 
 		<div role="tabpanel" class="tab-pane" id="cli"  >
 
-			<form method="GET" action="/">Command: <input type="text" name="command"/></form>
+			<form method="GET" action="/" onsubmit="send_command(this);return false;">
+				<input type="text" class="form-control" name="command" placeholder="type your command here ..." />
+			</form>
+			<pre id="console_output" style="max-height:600px; overflow-y:scroll;">
+			</pre>
 		</div><!-- /#cli -->
 	</div><!-- /.tab-content -->
 </div>
@@ -140,8 +144,12 @@
 
 
 
+<script src="/front-end/init_board.js"></script>
+<script src="/front-end/movable_pieces.js"></script>
+<script src="/front-end/send_command.js"></script>
 
-<script src="movable_pieces.js"></script>
+
+
 
 </body>
 </html>

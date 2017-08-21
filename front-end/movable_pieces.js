@@ -17,26 +17,35 @@ jQuery('table#board td').on('click', function() {
 		// Add the styling class ('dashed border')
 		$(this).addClass('selected');
 
-		// Wait half a second
+		// Wait half a second (animation)
+		// so that the user understands what is happening
 		window.setTimeout(function(){
-			// 
+
+			// destination click: one cell was already selected
 			if ($('td.selected').length == 2)
 			{
 				// Action
 				// ----------------
-				
-				// Move the piece
-				$('#'+window.fromCell+' div').appendTo($('#'+window.toCell));
-				
-				// Eat piece
-				if ($('#'+window.toCell+' div').length == 2)
-				{
-					$('#'+window.toCell+' div:eq(0)').fadeOut(400, function(){
-						$(this).remove()
-					});
-				}
-				
 
+				// Send the move intention to the server
+				$.ajax({'url':'/chess.php','data':{'command':'move '+window.fromCell+' '+window.toCell}, 'success':function(data){
+					alert(data);
+					
+					// Move the piece
+					$('#'+window.fromCell+' div').appendTo($('#'+window.toCell));
+				
+					// Eat piece
+					if ($('#'+window.toCell+' div').length == 2)
+					{
+						$('#'+window.toCell+' div:eq(0)').fadeOut(400, function(){
+							$(this).remove()
+						});
+					}
+					
+				}});
+				
+				
+				// Reset selected cells
 				$('td.selected').removeClass('selected');
 				window.fromCell = "";
 				window.toCell = "";

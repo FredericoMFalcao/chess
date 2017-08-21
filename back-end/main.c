@@ -51,6 +51,8 @@ int main(int argc, char**argv)
 		if (strncmp(argv[i],"--load-from-file=",17) == 0) {strcpy(load_from_file, &argv[i][17]);}
 		if (strncmp(argv[i],"--save-to-file=",15) == 0) {strcpy(save_to_file, &argv[i][15]);}
 		if (strncmp(argv[i],"--script",8) == 0) {exec_mode = EXEC_MODE_SCRIPT;}
+		if (strncmp(argv[i],"--command=",10) == 0) {command = malloc(strlen(argv[i])); strcpy(command, &argv[i][10]);}
+		
 	}
 
 
@@ -66,13 +68,13 @@ int main(int argc, char**argv)
 	}
 	
 	// Get the player's names
-	if (real_board.player_1[0] == 0)
+	if (real_board.player_1[0] == 0 && exec_mode != EXEC_MODE_SCRIPT)
 	{
 		printf("\nWhat is the name of the first player? ");
 		fscanf(stdin,"%s",&real_board.player_1[0]);
 	}
 	
-	if (real_board.player_2[0] == 0)
+	if (real_board.player_2[0] == 0 && exec_mode != EXEC_MODE_SCRIPT)
 	{
 		printf("\nWhat is the name of the second player? ");
 		fscanf(stdin,"%s",&real_board.player_2[0]);
@@ -106,13 +108,8 @@ int main(int argc, char**argv)
 	
 	// if program is being executed in script mode
 	if (exec_mode == EXEC_MODE_SCRIPT)
-	{
-		
-		while(getline(&command,&command_length,stdin) > 0)
-		{
-			parse_command(command);
-		}						
-		
+	{		
+		parse_command(command);
 	}
 
 	// If argument provided --save-to-file

@@ -1,4 +1,5 @@
 void print_piece(unsigned int piece);
+void print_piece_css(unsigned int piece);
 
 void print_board(CHESS_BOARD *chess_board)
 {
@@ -83,19 +84,19 @@ void print_board_json(CHESS_BOARD *chess_board)
 		for(j =0;j<8; j++)
 		{	
 
-			if ((chess_board->row[i].col[j] & PIECE_COLOR_BIT_MASK) == WHITE_PIECE) printf("\"w");
-			if ((chess_board->row[i].col[j] & PIECE_COLOR_BIT_MASK) == BLACK_PIECE) printf("\"b");
+			if ((chess_board->row[i].col[j] & PIECE_COLOR_BIT_MASK) == WHITE_PIECE) printf("\"white ");
+			if ((chess_board->row[i].col[j] & PIECE_COLOR_BIT_MASK) == BLACK_PIECE) printf("\"black ");
 			
 
 			if (chess_board->row[i].col[j] != 0)
 			{
-				print_piece(chess_board->row[i].col[j]);
+				print_piece_css(chess_board->row[i].col[j]);
 				printf("\"");
 			}
 			else 
 				printf("\"\"");
 			
-			if (j<8) printf(",");
+			if (j<7) printf(",");
 			
 			
 		}
@@ -111,11 +112,11 @@ void print_board_json(CHESS_BOARD *chess_board)
 	// Include lost pieces
 	printf(",\"lost_white_pieces\": [");
 	for(i = 0;chess_board->lost_white_pieces[i] != 0 && i <= 16; i++)
-	{	printf("\""); print_piece(chess_board->lost_white_pieces[i]); printf("\",");}
+	{	printf("\""); print_piece_css(chess_board->lost_white_pieces[i]); printf("\",");}
 	
 	printf("],\"lost_black_pieces\": [");	
 	for(i = 0;chess_board->lost_black_pieces[i] != 0 && i <= 16; i++)
-	{	printf("\""); print_piece(chess_board->lost_black_pieces[i]);	printf("\",");}
+	{	printf("\""); print_piece_css(chess_board->lost_black_pieces[i]);	printf("\",");}
 	printf("]");
 	
 	// Close JSON object
@@ -135,4 +136,17 @@ void print_piece(unsigned int piece)
 	else if ((piece & PIECE_BIT_MASK) == KING_PIECE ) printf("KI");	
 	
 	
+}
+
+void print_piece_css(unsigned int piece)
+{
+	if (0) {}
+	else if ((piece & PIECE_BIT_MASK) == PAWN_PIECE ) printf("pawn");
+	else if ((piece & PIECE_BIT_MASK) == TOWER_PIECE ) printf("tower");
+	else if ((piece & PIECE_BIT_MASK) == HORSE_PIECE ) printf("horse");
+	else if ((piece & PIECE_BIT_MASK) == BISHOP_PIECE ) printf("bishop");
+	else if ((piece & PIECE_BIT_MASK) == QUEEN_PIECE ) printf("queen");
+	else if ((piece & PIECE_BIT_MASK) == KING_PIECE ) printf("king");	
+	
+
 }
