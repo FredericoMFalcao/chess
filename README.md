@@ -27,14 +27,6 @@ There is an online demo at (http://chessgame.dtdns.net)
 
 ## Code description (per-file):
 
--  ([index.php](https://github.com/FredericoMFalcao/chess/blob/master/index.php)) Simple board, chess pieces and AJAX methods to communicate board moves
-
--  ([chess.php](https://github.com/FredericoMFalcao/chess/blob/master/chess.php)) run "chess" back-end.  
-	- Convert URL arguments (GET) to console arguments.
-	- Print correct server HTTP header (text or JSON)
-	- pass correct SESSION string
-
-
 ### Front-end ([/front-end](https://github.com/FredericoMFalcao/chess/tree/master/front-end))
 
 A simple PHP web page displaying the chess board and pieces. The PHP handles sessions.
@@ -42,8 +34,17 @@ Javascript generates AJAX calls when
 
 Check the code documentation [here](https://github.com/FredericoMFalcao/chess/tree/master/front-end)
 	
-### Back-end ([/back-end](Check the code documentation [here](https://github.com/FredericoMFalcao/chess/tree/master/back-end)))
+### Back-end ([/back-end](https://github.com/FredericoMFalcao/chess/tree/master/back-end))
 
 A C program that can be run independently in a console, i.e. you can play the game just by building and running the file on this folder in the console.
 
 Check the code documentation [here](https://github.com/FredericoMFalcao/chess/tree/master/back-end)
+
+### This folder
+
+-  ([index.php](https://github.com/FredericoMFalcao/chess/blob/master/index.php)) Simple board, chess pieces and AJAX methods to communicate board moves
+
+-  ([chess.php](https://github.com/FredericoMFalcao/chess/blob/master/chess.php)) run "chess" back-end.  
+	- Convert URL arguments (GET) to console arguments.
+	- Print correct server HTTP header (text or JSON)
+	- pass correct SESSION string
