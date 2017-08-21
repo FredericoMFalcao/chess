@@ -26,7 +26,8 @@ char player_2[255] = "";
 char filename[255] = "";
 CHESS_BOARD real_board;
 unsigned int running_mode = 0;
-int board_loaded = 0;
+char load_from_file[255] = "";
+char save_to_file[255] = "";
 int exec_mode = EXEC_MODE_PROMPT;
 
 
@@ -49,17 +50,21 @@ int main(int argc, char**argv)
 		if (strcmp(argv[i],"--test-1") == 0) running_mode |= RUNNING_MODE_TEST_1;		
 		if (strncmp(argv[i],"--first-player=",14) == 0) strcpy(&player_1[0], &argv[i][15]);
 		if (strncmp(argv[i],"--second-player=",15) == 0) strcpy(&player_2[0], &argv[i][16]);
-		if (strncmp(argv[i],"--load-from-file=",17) == 0) {load_board_from_file(&argv[i][17], &real_board); board_loaded = 1;}
+		if (strncmp(argv[i],"--load-from-file=",17) == 0) {strcpy(load_from_file, &argv[i][17]);}
+		if (strncmp(argv[i],"--save-to-file=",15) == 0) {strcpy(save_to_file, &argv[i][15]);}
 		if (strncmp(argv[i],"--script",8) == 0) {exec_mode = EXEC_MODE_SCRIPT;}
 	}
 
 
 	// Set the piecies in the inital locations
 	// acording to standard chess rules
-	if (!board_loaded)
+	if (load_from_file[0] == 0)
 	{
 		initialize_board(&real_board);
-		board_loaded = 1;
+	}
+	else
+	{
+		load_board_from_file(load_from_file, &real_board);
 	}
 	
 	// Get the player's names
@@ -109,6 +114,15 @@ int main(int argc, char**argv)
 		{
 			parse_command(command);
 		}						
+		
+	}
+
+	// If argument provided --save-to-file
+	// save the board to binary file before 
+	// quitting
+	if (save_to_file[0] != 0)
+	{
+		save_board_to_file(save_to_file, &real_board);
 		
 	}
 	
