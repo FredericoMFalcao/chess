@@ -21,8 +21,6 @@
 // 3. Initialize global variables
 // ------------------------
 unsigned int board[8][8];
-char player_1[255] = "";
-char player_2[255] = "";
 char filename[255] = "";
 CHESS_BOARD real_board;
 unsigned int running_mode = 0;
@@ -40,16 +38,16 @@ int main(int argc, char**argv)
 	size_t command_length = 0;
 	
 	// Init Strings
-	player_1[0] = 0;
-	player_2[0] = 0;
+	real_board.player_1[0] = 0;
+	real_board.player_2[0] = 0;
 
 	// Assign the running mode
 	for(int i = 1; i < argc; i++)
 	{
 
 		if (strcmp(argv[i],"--test-1") == 0) running_mode |= RUNNING_MODE_TEST_1;		
-		if (strncmp(argv[i],"--first-player=",14) == 0) strcpy(&player_1[0], &argv[i][15]);
-		if (strncmp(argv[i],"--second-player=",15) == 0) strcpy(&player_2[0], &argv[i][16]);
+		if (strncmp(argv[i],"--first-player=",14) == 0) strcpy(real_board.player_1, &argv[i][15]);
+		if (strncmp(argv[i],"--second-player=",15) == 0) strcpy(real_board.player_2, &argv[i][16]);
 		if (strncmp(argv[i],"--load-from-file=",17) == 0) {strcpy(load_from_file, &argv[i][17]);}
 		if (strncmp(argv[i],"--save-to-file=",15) == 0) {strcpy(save_to_file, &argv[i][15]);}
 		if (strncmp(argv[i],"--script",8) == 0) {exec_mode = EXEC_MODE_SCRIPT;}
@@ -68,16 +66,16 @@ int main(int argc, char**argv)
 	}
 	
 	// Get the player's names
-	if (player_1[0] == 0)
+	if (real_board.player_1[0] == 0)
 	{
 		printf("\nWhat is the name of the first player? ");
-		fscanf(stdin,"%s",&player_1[0]);
+		fscanf(stdin,"%s",&real_board.player_1[0]);
 	}
 	
-	if (player_2[0] == 0)
+	if (real_board.player_2[0] == 0)
 	{
 		printf("\nWhat is the name of the second player? ");
-		fscanf(stdin,"%s",&player_2[0]);
+		fscanf(stdin,"%s",&real_board.player_2[0]);
 	}
 	
 	// Load board

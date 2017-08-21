@@ -6,7 +6,7 @@ void parse_command(char *command)
 	char *error;
 
 	
-	if(strcmp(command, "status") == 0)
+	if(strncmp(command, "status",6) == 0)
 	{
 		printf("It's your turn! Type 'move X0 X0' to move one of your pieces.\n");
 		
@@ -66,9 +66,9 @@ void parse_command(char *command)
 			// Print the player's current turn:
 			// --------------------------------
 			if (real_board.current_turn == WHITE_PIECE)
-				printf("It's the %s turn.\n",&player_1[0]);
+				printf("It's the %s turn.\n",real_board.player_1);
 			if (real_board.current_turn == BLACK_PIECE)
-				printf("It's the %s turn.\n",&player_2[0]);				
+				printf("It's the %s turn.\n",real_board.player_2);				
 			
 		}
 				

@@ -10,7 +10,13 @@ session_start();
 if(!isset($_SESSION['id']))
 	$_SESSION['id'] = md5(rand());
 
+if (file_exists($_SESSION['id']."txt"))
+	$prev_commands = explode("\n", file_get_contents($_SESSION['id']."txt"));
+else
+	$prev_commands = array();
 
+if (isset($_POST['command']))
+	$prev_commands
 
 $_GET['load_from_file'] = $_SESSION['id'].".txt";
 

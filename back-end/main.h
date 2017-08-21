@@ -30,6 +30,8 @@ struct CHESS_BOARD {
 	unsigned int lost_black_pieces[16];
 	
 	unsigned int current_turn;
+	char player_1[255];
+	char player_2[255];
 	
 };
 typedef struct CHESS_BOARD CHESS_BOARD;
@@ -54,8 +56,6 @@ typedef struct POSSIBLE_MOVES POSSIBLE_MOVES;
 // 4. Declare global variables
 // ------------------------
 extern unsigned int board[8][8];
-extern char player_1[255];
-extern char player_2[255];
 extern CHESS_BOARD real_board;
 extern unsigned int running_mode;
 

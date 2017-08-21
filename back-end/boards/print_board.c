@@ -8,9 +8,9 @@ void print_board(CHESS_BOARD *chess_board)
 	// Print the current player's turn
 	// -------------------------------
 	if (chess_board->current_turn == WHITE_PIECE)
-		printf("It's the white pieces turn.\n");
+		printf("It's the white pieces turn. (%s)\n", chess_board->player_1);
 	if (chess_board->current_turn == BLACK_PIECE)
-		printf("It's the black pieces turn.\n");
+		printf("It's the black pieces turn. (%s)\n", chess_board->player_2);
 	
 	
 	printf("8 |");
