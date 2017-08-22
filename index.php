@@ -42,6 +42,10 @@
 	    <li role="presentation"><a href="javascript:void(0);" data-target="#cli"  role="tab" data-toggle="tab">CLI</a></li>
 	  </ul>
 	 <div class="tab-content">
+
+		 
+		<div id="status_panel"></div>
+		 
 		<div role="tabpanel" class="tab-pane active" id="gui"  >
 
 			<table boder="1" id="board">

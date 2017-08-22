@@ -26,31 +26,22 @@ jQuery('table#board td').on('click', function() {
 			{
 				// Action
 				// ----------------
+				
 
 				// Send the move intention to the server
-				$.ajax({'url':'/chess.php','data':{'command':'move '+window.fromCell+' '+window.toCell,'json':1}, 
-				'success':function(data){
-					alert(data.message);
-					
-					update_board();
-					
-					// Reset selected cells
-					$('td.selected').removeClass('selected');
-					window.fromCell = "";
-					window.toCell = "";
-					
-					
-				},
-				'error':function(jqXHR, error_msg){
-					alert("ERROR: "+error_msg);
-					
-					// Reset selected cells
-					$('td.selected').removeClass('selected');
-					window.fromCell = "";
-					window.toCell = "";
-					
-				}});
+				send_command("move "+window.fromCell+" "+window.toCell, function(response_data){
+
+					// Force the browser to get the new board state
+					// if the response was not an error
+					if (response_data.status != 3)
+						update_board();
+
+				});
 				
+				// Reset selected cells
+				$('td.selected').removeClass('selected');
+				window.fromCell = "";
+				window.toCell = "";											
 				
 				
 			}

@@ -73,3 +73,4 @@ void output(char *message, int status);
 #define OUTPUT_MODE_QUESTION 1
 #define OUTPUT_MODE_STATUS 2
 #define OUTPUT_MODE_ERROR 3
+#define OUTPUT_MODE_BOARD_STATE 4

@@ -1,10 +1,11 @@
-void print_piece(unsigned int piece);
-void print_piece_css(unsigned int piece);
+void print_piece(unsigned int piece, char *text);
+void print_piece_css(unsigned int piece, char *text);
 
 void print_board(CHESS_BOARD *chess_board)
 {
 	int i,j;
 	char piece[3];
+	char status_message[1024];
 	
 	// Print the current player's turn
 	// -------------------------------
@@ -28,8 +29,8 @@ void print_board(CHESS_BOARD *chess_board)
 
 			if (chess_board->row[i].col[j] != 0)
 			{
-				print_piece(chess_board->row[i].col[j]);
-				printf(" |");
+				print_piece(chess_board->row[i].col[j], &status_message[0]);
+				printf("%s |", status_message);
 			}
 			else 
 				printf("      ");	
@@ -49,11 +50,17 @@ void print_board(CHESS_BOARD *chess_board)
 	// Include lost pieces
 	printf("\nLost white pieces: ");
 	for(i = 0;chess_board->lost_white_pieces[i] != 0 && i <= 16; i++)
-	{	print_piece(chess_board->lost_white_pieces[i]); printf(" ");}
+	{	
+		print_piece(chess_board->lost_white_pieces[i], &status_message[0]); 
+		printf("%s ", status_message);
+	}
 	
 	printf("\nLost black pieces: ");	
 	for(i = 0;chess_board->lost_black_pieces[i] != 0 && i <= 16; i++)
-	{	print_piece(chess_board->lost_black_pieces[i]);	printf(" ");}
+	{	
+		print_piece(chess_board->lost_black_pieces[i], &status_message[0]);
+		printf("%s ", status_message);
+	}
 	
 	printf("\n");
 }
@@ -62,9 +69,10 @@ void print_board_json(CHESS_BOARD *chess_board)
 {
 	int i,j;
 	char piece[3];
+	char output_message[1024];
 	
 	// Open JSON object
-	printf("{");
+	printf("{\"status\":%d,", OUTPUT_MODE_BOARD_STATE);
 
 	// Print the current player's turn
 	// -------------------------------
@@ -90,7 +98,8 @@ void print_board_json(CHESS_BOARD *chess_board)
 
 			if (chess_board->row[i].col[j] != 0)
 			{
-				print_piece_css(chess_board->row[i].col[j]);
+				print_piece_css(chess_board->row[i].col[j], &output_message[0]);
+				printf("%s", output_message);
 				printf("\"");
 			}
 			else 
@@ -112,11 +121,23 @@ void print_board_json(CHESS_BOARD *chess_board)
 	// Include lost pieces
 	printf(",\"lost_white_pieces\": [");
 	for(i = 0;chess_board->lost_white_pieces[i] != 0 && i <= 16; i++)
-	{	printf("\""); print_piece_css(chess_board->lost_white_pieces[i]); printf("\",");}
+	{	
+		printf("\""); 
+		print_piece_css(chess_board->lost_white_pieces[i], &output_message[0]);
+		printf("%s\"", output_message);
+		if (chess_board->lost_white_pieces[i+1] != 0 && i+1 <= 16) 
+			printf(",");
+	}
 	
 	printf("],\"lost_black_pieces\": [");	
 	for(i = 0;chess_board->lost_black_pieces[i] != 0 && i <= 16; i++)
-	{	printf("\""); print_piece_css(chess_board->lost_black_pieces[i]);	printf("\",");}
+	{	
+		printf("\"");
+		print_piece_css(chess_board->lost_black_pieces[i], &output_message[0]);
+		printf("%s\"", output_message);
+		if (chess_board->lost_black_pieces[i+1] != 0 && i+1 <= 16) printf(",");
+	}
+
 	printf("]");
 	
 	// Close JSON object
@@ -125,28 +146,28 @@ void print_board_json(CHESS_BOARD *chess_board)
 }
 
 
-void print_piece(unsigned int piece)
+void print_piece(unsigned int piece, char *text)
 {
 	if (0) {}
-	else if ((piece & PIECE_BIT_MASK) == PAWN_PIECE ) printf("PW");
-	else if ((piece & PIECE_BIT_MASK) == TOWER_PIECE ) printf("TW");
-	else if ((piece & PIECE_BIT_MASK) == HORSE_PIECE ) printf("HR");
-	else if ((piece & PIECE_BIT_MASK) == BISHOP_PIECE ) printf("BI");
-	else if ((piece & PIECE_BIT_MASK) == QUEEN_PIECE ) printf("QE");
-	else if ((piece & PIECE_BIT_MASK) == KING_PIECE ) printf("KI");	
+	else if ((piece & PIECE_BIT_MASK) == PAWN_PIECE ) sprintf(text,"PW");
+	else if ((piece & PIECE_BIT_MASK) == TOWER_PIECE ) sprintf(text,"TW");
+	else if ((piece & PIECE_BIT_MASK) == HORSE_PIECE ) sprintf(text,"HR");
+	else if ((piece & PIECE_BIT_MASK) == BISHOP_PIECE ) sprintf(text,"BI");
+	else if ((piece & PIECE_BIT_MASK) == QUEEN_PIECE ) sprintf(text,"QE");
+	else if ((piece & PIECE_BIT_MASK) == KING_PIECE ) sprintf(text,"KI");	
 	
 	
 }
 
-void print_piece_css(unsigned int piece)
+void print_piece_css(unsigned int piece, char *text)
 {
 	if (0) {}
-	else if ((piece & PIECE_BIT_MASK) == PAWN_PIECE ) printf("pawn");
-	else if ((piece & PIECE_BIT_MASK) == TOWER_PIECE ) printf("tower");
-	else if ((piece & PIECE_BIT_MASK) == HORSE_PIECE ) printf("horse");
-	else if ((piece & PIECE_BIT_MASK) == BISHOP_PIECE ) printf("bishop");
-	else if ((piece & PIECE_BIT_MASK) == QUEEN_PIECE ) printf("queen");
-	else if ((piece & PIECE_BIT_MASK) == KING_PIECE ) printf("king");	
+	else if ((piece & PIECE_BIT_MASK) == PAWN_PIECE ) sprintf(text,"pawn");
+	else if ((piece & PIECE_BIT_MASK) == TOWER_PIECE ) sprintf(text,"tower");
+	else if ((piece & PIECE_BIT_MASK) == HORSE_PIECE ) sprintf(text,"horse");
+	else if ((piece & PIECE_BIT_MASK) == BISHOP_PIECE ) sprintf(text,"bishop");
+	else if ((piece & PIECE_BIT_MASK) == QUEEN_PIECE ) sprintf(text,"queen");
+	else if ((piece & PIECE_BIT_MASK) == KING_PIECE ) sprintf(text,"king");	
 	
 
 }
