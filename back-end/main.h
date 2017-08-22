@@ -1,7 +1,7 @@
 // 1. Include standard C libraries
 // ------------------------
 #include <stdio.h>
-#include <strings.h>
+#include <string.h>
 #include <stdlib.h>
 
 // 2. Define structures specific for chess

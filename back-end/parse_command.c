@@ -56,10 +56,10 @@ void parse_command(char *command)
 		else
 		{
 			if ((i & PIECE_COLOR_BIT_MASK ) == WHITE_PIECE)
-			{	output("White piece ", OUTPUT_MODE_STATUS); print_piece_css(i, &status_message); output(status_message, OUTPUT_MODE_STATUS); output(" taken.", OUTPUT_MODE_STATUS);}
+			{	output("White piece ", OUTPUT_MODE_STATUS); print_piece_css(i, &status_message[0]); output(status_message, OUTPUT_MODE_STATUS); output(" taken.", OUTPUT_MODE_STATUS);}
 			
 			if ((i & PIECE_COLOR_BIT_MASK ) == BLACK_PIECE)
-			{	output("Black piece ", OUTPUT_MODE_STATUS); print_piece_css(i, &status_message); output(status_message, OUTPUT_MODE_STATUS); output(" taken.", OUTPUT_MODE_STATUS);}
+			{	output("Black piece ", OUTPUT_MODE_STATUS); print_piece_css(i, &status_message[0]); output(status_message, OUTPUT_MODE_STATUS); output(" taken.", OUTPUT_MODE_STATUS);}
 			
 		}
 
