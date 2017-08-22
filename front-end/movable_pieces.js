@@ -28,20 +28,11 @@ jQuery('table#board td').on('click', function() {
 				// ----------------
 
 				// Send the move intention to the server
-				$.ajax({'url':'/chess.php','data':{'command':'move '+window.fromCell+' '+window.toCell}, 
+				$.ajax({'url':'/chess.php','data':{'command':'move '+window.fromCell+' '+window.toCell,'json':1}, 
 				'success':function(data){
-					alert(data);
+					alert(data.message);
 					
-					// Move the piece
-					$('#'+window.fromCell+' div').appendTo($('#'+window.toCell));
-				
-					// Eat piece
-					if ($('#'+window.toCell+' div').length == 2)
-					{
-						$('#'+window.toCell+' div:eq(0)').fadeOut(400, function(){
-							$(this).remove()
-						});
-					}
+					update_board();
 					
 					// Reset selected cells
 					$('td.selected').removeClass('selected');

@@ -62,10 +62,14 @@ extern unsigned int running_mode;
 
 // 5. Declare global functions
 // ------------------------
-
+void output(char *message, int status);
 
 // 6. Declare EXEC modes
 // ------------------------
 
 #define EXEC_MODE_PROMPT 0
 #define EXEC_MODE_SCRIPT 1
+
+#define OUTPUT_MODE_QUESTION 1
+#define OUTPUT_MODE_STATUS 2
+#define OUTPUT_MODE_ERROR 3

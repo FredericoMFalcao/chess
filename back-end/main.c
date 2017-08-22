@@ -9,16 +9,7 @@
 #include "boards/boards.h"
 
 
-//
-// 2. Other functions in this MODULE
-// -----------------------
-
-#include "hint.c"
-#include "parse_command.c"
-
-
-
-// 3. Initialize global variables
+// 2. Declare and Initialize global variables
 // ------------------------
 unsigned int board[8][8];
 char filename[255] = "";
@@ -27,6 +18,18 @@ unsigned int running_mode = 0;
 char load_from_file[255] = "";
 char save_to_file[255] = "";
 int exec_mode = EXEC_MODE_PROMPT;
+
+char output_buffer[1024] = "";
+int output_status;
+
+//
+// 3. Other functions in this MODULE
+// -----------------------
+
+#include "hint.c"
+#include "parse_command.c"
+
+
 
 
 
@@ -70,13 +73,13 @@ int main(int argc, char**argv)
 	// Get the player's names
 	if (real_board.player_1[0] == 0 && exec_mode != EXEC_MODE_SCRIPT)
 	{
-		printf("\nWhat is the name of the first player? ");
+		output("\nWhat is the name of the first player? ", OUTPUT_MODE_QUESTION);
 		fscanf(stdin,"%s",&real_board.player_1[0]);
 	}
 	
 	if (real_board.player_2[0] == 0 && exec_mode != EXEC_MODE_SCRIPT)
 	{
-		printf("\nWhat is the name of the second player? ");
+		output("\nWhat is the name of the second player? ", OUTPUT_MODE_QUESTION);
 		fscanf(stdin,"%s",&real_board.player_2[0]);
 	}
 	
@@ -90,14 +93,14 @@ int main(int argc, char**argv)
 	// if program is being executed in prompt mode		
 	if (exec_mode  == EXEC_MODE_PROMPT)
 	{
-		printf("chess> ");
+		output("chess> ", OUTPUT_MODE_STATUS);
 		getline(&command,&command_length,stdin);
 	
 		while(strncmp("quit",command,4) != 0)
 		{
 			parse_command(command);
 		
-			printf("chess> ");
+			output("chess> ", OUTPUT_MODE_STATUS);
 			getline(&command,&command_length,stdin);
 		
 		}
@@ -110,6 +113,15 @@ int main(int argc, char**argv)
 	if (exec_mode == EXEC_MODE_SCRIPT)
 	{		
 		parse_command(command);
+		
+		// Flush the output buffer
+		// in JSON format
+		if (strlen(output_buffer) > 0)
+			printf("{\"status\":%d, \"message\":\"%s\"}", output_status, output_buffer);
+
+		// Clear output buffer
+		output_buffer[0] = 0;
+		
 	}
 
 	// If argument provided --save-to-file
@@ -133,4 +145,27 @@ short alpha_numeric(char a)
 		return 1;
 	else
 		return 0;
+}
+
+void output(char *message, int status)
+{
+	int i; 
+	
+	if (exec_mode == EXEC_MODE_SCRIPT)
+	{
+		// Add space between appended strings
+		if (strlen(output_buffer) != 0) sprintf(&output_buffer[strlen(output_buffer)], " ");
+		
+		// Replace '\n' newline character by ' ' space 
+		for(i = 0; i < strlen(message); i++ )
+			if (message[i] == '\n') message[i] = ' ';
+	
+		// Append to output buffer
+		sprintf(&output_buffer[strlen(output_buffer)], "%s", message);
+		output_status = status;
+	}
+	
+	
+	if (exec_mode == EXEC_MODE_PROMPT)
+		printf( "%s\n", message);
 }

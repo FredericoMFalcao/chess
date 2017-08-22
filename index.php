@@ -144,7 +144,9 @@
 
 
 
-<script src="/front-end/init_board.js"></script>
+<script src="/front-end/update_board.js"></script>
+<script>/* initiate board */ update_board();</script>
+
 <script src="/front-end/movable_pieces.js"></script>
 <script src="/front-end/send_command.js"></script>
 
