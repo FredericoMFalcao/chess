@@ -7,7 +7,7 @@ function send_command(form_obj)
 	$.ajax({'url':'/chess.php',data:{'command':command},'success':function(response_data){
 		html_data = $('#console_output').html();
 		
-		html_data += response_data;
+		html_data += "\n"+response_data;
 		
 		$('#console_output').html(html_data);
 	}});

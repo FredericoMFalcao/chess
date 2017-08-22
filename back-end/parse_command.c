@@ -41,8 +41,12 @@ void parse_command(char *command)
 		// Successful move
 		if (i == 0)
 		{
-//			no_action_phrase();
-			printf("Moved!");
+			// Wrap in JSON object if MODE SCRIPT
+			if(exec_mode == EXEC_MODE_SCRIPT)
+				printf("{\"status\":200, \"message\":\"");
+				
+			printf("Piece moved!");
+
 		}			
 		// Error
 		else if (i == -1)
@@ -71,6 +75,11 @@ void parse_command(char *command)
 				printf("It's the %s turn.\n",real_board.player_2);				
 			
 		}
+		
+		// Wrap in JSON object if MODE SCRIPT
+		if(exec_mode == EXEC_MODE_SCRIPT)
+			printf("\"}");
+		
 				
 		
 		

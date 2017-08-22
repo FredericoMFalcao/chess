@@ -2,3 +2,4 @@
 ./chess
 .DS_Store
 Icon?
+*.bin

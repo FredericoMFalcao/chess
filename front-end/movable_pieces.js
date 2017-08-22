@@ -28,7 +28,8 @@ jQuery('table#board td').on('click', function() {
 				// ----------------
 
 				// Send the move intention to the server
-				$.ajax({'url':'/chess.php','data':{'command':'move '+window.fromCell+' '+window.toCell}, 'success':function(data){
+				$.ajax({'url':'/chess.php','data':{'command':'move '+window.fromCell+' '+window.toCell}, 
+				'success':function(data){
 					alert(data);
 					
 					// Move the piece
@@ -42,13 +43,24 @@ jQuery('table#board td').on('click', function() {
 						});
 					}
 					
+					// Reset selected cells
+					$('td.selected').removeClass('selected');
+					window.fromCell = "";
+					window.toCell = "";
+					
+					
+				},
+				'error':function(jqXHR, error_msg){
+					alert("ERROR: "+error_msg);
+					
+					// Reset selected cells
+					$('td.selected').removeClass('selected');
+					window.fromCell = "";
+					window.toCell = "";
+					
 				}});
 				
 				
-				// Reset selected cells
-				$('td.selected').removeClass('selected');
-				window.fromCell = "";
-				window.toCell = "";
 				
 			}
 		},500);
