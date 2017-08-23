@@ -11,9 +11,9 @@ unsigned int is_legal_pawn_move(POSITION start, POSITION end, CHESS_BOARD *chess
 	unsigned int piece = chess_board->row[start.row].col[start.col];
 	
 	
-	// Check if there is an "eating attempt"
+	// Check if there is an "taking attempt"
 	// if the user is trying to move a piece into the opponent's
-	// place to eat it
+	// place to take it out
 	if (chess_board->row[end.row].col[end.col] & (piece & ~(PIECE_COLOR_BIT_MASK)))
 	{
 		if ((((piece & PIECE_COLOR_BIT_MASK) == WHITE_PIECE) && (end.row - start.row != 1 || abs(end.col - start.col) != 1))
@@ -39,13 +39,13 @@ unsigned int is_legal_pawn_move(POSITION start, POSITION end, CHESS_BOARD *chess
 		}
 		
 		if (
-			(((piece & PIECE_COLOR_BIT_MASK) == WHITE_PIECE) && start.row > 1 && (end.row - start.row) != 1)
+			(((piece & PIECE_COLOR_BIT_MASK) == WHITE_PIECE) && start.row > 1 && (end.row - start.row) != 1 && (end.col == start.col))
 			|| 
-			(((piece & PIECE_COLOR_BIT_MASK) == WHITE_PIECE) && start.row == 1 && abs(end.row - start.row) > 2)
+			(((piece & PIECE_COLOR_BIT_MASK) == WHITE_PIECE) && start.row == 1 && abs(end.row - start.row) > 2 && (end.col == start.col))
 			||
-			(((piece & PIECE_COLOR_BIT_MASK) == BLACK_PIECE) && start.row < 6 && (end.row - start.row) != -1)
+			(((piece & PIECE_COLOR_BIT_MASK) == BLACK_PIECE) && start.row < 6 && (end.row - start.row) != -1 && (end.col == start.col))
 			|| 
-			(((piece & PIECE_COLOR_BIT_MASK) == BLACK_PIECE) && start.row == 6 && abs(end.row - start.row) < -2)
+			(((piece & PIECE_COLOR_BIT_MASK) == BLACK_PIECE) && start.row == 6 && abs(end.row - start.row) < -2 && (end.col == start.col))
 
 			)
 		{
