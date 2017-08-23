@@ -42,6 +42,12 @@ function send_command(input_data, success_fn)
 					);						
 					
 				}
+
+				// 4 - OUTPUT_MODE_BOARD_STATE
+				if (response_data.status == 4)
+				{
+					
+				}
 				
 				success_fn(response_data);
 				

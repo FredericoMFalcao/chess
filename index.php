@@ -9,12 +9,12 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
 
 	<style>
-		table, th, td {
+		table#board,table#board td {
 		    border: 1px solid #bfbfbf;
 		}
 
-		td:nth-child(even) {background-color:#D8D8D8;}
-		tr:nth-child(even) td {background-color:#E5E5E5;}
+		table#board td:nth-child(even) {background-color:#D8D8D8;}
+		table#board tr:nth-child(even) td {background-color:#E5E5E5;}
 		td {height:60px;width:60px;}
 		
 		.chess_piece {height:60px; width:60px; background-image:url('/front-end/chess_pieces.png'); background-repeat:no-repeat;}
@@ -42,13 +42,12 @@
 	    <li role="presentation"><a href="javascript:void(0);" data-target="#cli"  role="tab" data-toggle="tab">Console</a></li>
 	  </ul>
 	 <div class="tab-content">
-
-		 
 		<div id="status_panel"></div>
 		 
-		<div role="tabpanel" class="tab-pane active" id="gui"  >
-
-			<table boder="1" id="board">
+		<div role="tabpanel" class="tab-pane active" id="gui">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<table boder="1" id="board">
 				<tbody>
 					<tr>
 						<td id="a8"></td>
@@ -131,7 +130,25 @@
 						<td id="h1"></td>
 					</tr>
 				</tbody>
-			</table>		
+			</table>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<strong>White pieces taken:</strong>					
+					<table id="lost_white_pieces">
+						<tbody>
+							<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+						</tbody>
+					</table>
+					<br><br>
+					<strong>Black pieces taken:</strong>					
+					<table id="lost_black_pieces">
+						<tbody>
+							<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+						</tbody>
+					</table>
+					
+				</div>
+			</div>
 		</div><!-- /#gui -->
 
 		<div role="tabpanel" class="tab-pane" id="cli"  >
