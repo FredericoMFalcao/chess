@@ -112,6 +112,14 @@ void parse_command(char *command)
 			output(status_message, OUTPUT_MODE_STATUS);
 		}
 	}
+	else if(strncmp(command, "reset", 5) == 0)
+	{
+		initialize_board(&real_board);
+		
+		sprintf(status_message,"The board has been reset to inital position.");
+		output(status_message, OUTPUT_MODE_STATUS);		
+
+	}
 
 	
 	else
