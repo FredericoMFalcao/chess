@@ -1,9 +1,6 @@
 <?php
 // 1. Pass the correct header to the browser
-if (isset($_GET['json']))
-	header("Content-type: application/json");
-else
-	header("Content-type: text/plain");
+header("Content-type: application/json");
 
 // 2. Handle Sessions
 session_start();

@@ -30,7 +30,7 @@ function send_command(input_data, success_fn)
 				if (response_data.status == 2)
 				{
 					$('#status_panel').html("").append(
-						$('<div/>').addClass('alert').addClass('alert-info').text(response_data.message)
+						$('<div/>').addClass('alert').addClass('alert-success').text(response_data.message)
 					);
 				}
 				
@@ -38,7 +38,7 @@ function send_command(input_data, success_fn)
 				if (response_data.status == 3)
 				{
 					$('#status_panel').html("").append(
-						$('<div/>').addClass('alert').addClass('alert-warning').text(response_data.message)
+						$('<div/>').addClass('alert').addClass('alert-danger').text(response_data.message)
 					);						
 					
 				}

@@ -41,8 +41,8 @@ int main(int argc, char**argv)
 	size_t command_length = 0;
 	
 	// Init Strings
-	real_board.player_1[0] = 0;
-	real_board.player_2[0] = 0;
+	strcpy(&real_board.player_1[0],"white player");
+	strcpy(&real_board.player_2[0],"black player");
 
 	// Assign the running mode
 	for(int i = 1; i < argc; i++)
