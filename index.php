@@ -29,7 +29,7 @@
 		.king {background-position-y: -240px;}
 		.pawn {background-position-y: -300px;}
 		
-		.selected{border:2px dashed #7F7F7F;}
+		table#board td.selected{border:2px dashed #7F7F7F;}
 		
 		</style>
 </head>
@@ -42,7 +42,9 @@
 	    <li role="presentation"><a href="javascript:void(0);" data-target="#cli"  role="tab" data-toggle="tab">Console</a></li>
 	  </ul>
 	 <div class="tab-content">
-		<div id="status_panel"></div>
+		<div id="status_panel">
+			<div class="alert alert-info">Welcome to the Chess Game!</div>
+		</div>
 		 
 		<div role="tabpanel" class="tab-pane active" id="gui">
 			<div class="row">
@@ -170,11 +172,13 @@
 
 
 
+<script src="/front-end/send_command.js"></script>
+<script src="/front-end/movable_pieces.js"></script>
 <script src="/front-end/update_board.js"></script>
 <script>/* initiate board */ update_board();</script>
 
-<script src="/front-end/movable_pieces.js"></script>
-<script src="/front-end/send_command.js"></script>
+
+
 
 
 
