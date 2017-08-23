@@ -88,7 +88,12 @@ int move_piece(CHESS_BOARD *chess_board, POSITION start, POSITION end, char** er
 					chess_board->lost_white_pieces[i] = chess_board->row[end.row].col[end.col];
 					break;
 				}
+				
 			}
+			
+			// Subtract the value of the piece to the black player's points
+			chess_board->player_2_points -= piece_value(chess_board->row[end.row].col[end.col]);
+			
 		}
 		
 		// If piece taken was black
@@ -103,6 +108,10 @@ int move_piece(CHESS_BOARD *chess_board, POSITION start, POSITION end, char** er
 					break;
 				}
 			}
+
+			// Subtract the value of the piece to the white player's points
+			chess_board->player_1_points -= piece_value(chess_board->row[end.row].col[end.col]);
+			
 		}
 		
 		// Assign the taken piece

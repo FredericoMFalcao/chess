@@ -3,7 +3,7 @@
 
 #  Chess Game with Artifical Intelligence (AI)
 
-This is a simple chess game written in PHP/C to demontrate and test different AI algorithms the computer can use to test its next move. You can test it online; run it on your web server and play in the browser; or compile it and run and play it in the console.
+This is a simple chess game - front-end written in PHP and back-end written in C - to demontrate and test different AI algorithms the computer can use to calculate its next move. You can test it online; run it on your web server and play in the browser; or compile it and run and play it in the console.
 
 In the browser you can just click on pieces to direct the next move.
 In the console you can see type `print` to check the board state and type `move a2 a3` to move pieces.

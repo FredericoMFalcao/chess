@@ -9,3 +9,4 @@
 // -----------------------
 #include "allowed_moves.c"
 #include "possible_moves.c"
+#include "piece_value.c"

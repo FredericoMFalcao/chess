@@ -47,7 +47,7 @@ POSSIBLE_MOVES possible_pawn_move(POSITION start, CHESS_BOARD* chess_board)
 		// add the points of the piece taken
 		if ((chess_board->row[start.row].col[start.col] & PIECE_COLOR_BIT_MASK) == ((chess_board->row[start.row+1].col[start.col-1] & PIECE_COLOR_BIT_MASK) ^ PIECE_COLOR_BIT_MASK))
 		{
-			possible_moves.points = chess_board->row[start.row].col[start.col] & PIECE_POINT_VALUE_MASK;
+			possible_moves.points = chess_board->row[start.row].col[start.col] & POSSIBLE_MOVE_PIECE;
 		}
 
 	}
@@ -64,7 +64,7 @@ POSSIBLE_MOVES possible_pawn_move(POSITION start, CHESS_BOARD* chess_board)
 		// add the points of the piece taken
 		if ((chess_board->row[start.row].col[start.col] & PIECE_COLOR_BIT_MASK) == ((chess_board->row[start.row+1].col[start.col+1] & PIECE_COLOR_BIT_MASK) ^ PIECE_COLOR_BIT_MASK))
 		{
-			possible_moves.points = chess_board->row[start.row].col[start.col] & PIECE_POINT_VALUE_MASK;
+			possible_moves.points = chess_board->row[start.row].col[start.col] & POSSIBLE_MOVE_PIECE;
 		}
 
 	}
@@ -105,7 +105,7 @@ POSSIBLE_MOVES possible_pawn_move(POSITION start, CHESS_BOARD* chess_board)
 		// add the points of the piece taken
 		if ((chess_board->row[start.row].col[start.col] & PIECE_COLOR_BIT_MASK) == ((chess_board->row[start.row+1].col[start.col-1] & PIECE_COLOR_BIT_MASK) ^ PIECE_COLOR_BIT_MASK))
 		{
-			possible_moves.points = chess_board->row[start.row].col[start.col] & PIECE_POINT_VALUE_MASK;
+			possible_moves.points = chess_board->row[start.row].col[start.col] & POSSIBLE_MOVE_PIECE;
 		}
 
 	}
@@ -122,7 +122,7 @@ POSSIBLE_MOVES possible_pawn_move(POSITION start, CHESS_BOARD* chess_board)
 		// add the points of the piece taken
 		if ((chess_board->row[start.row].col[start.col] & PIECE_COLOR_BIT_MASK) == ((chess_board->row[start.row-1].col[start.col+1] & PIECE_COLOR_BIT_MASK) ^ PIECE_COLOR_BIT_MASK))
 		{
-			possible_moves.points = chess_board->row[start.row].col[start.col] & PIECE_POINT_VALUE_MASK;
+			possible_moves.points = chess_board->row[start.row].col[start.col] & POSSIBLE_MOVE_PIECE;
 		}
 
 	}
@@ -164,7 +164,7 @@ POSSIBLE_MOVES possible_tower_move(POSITION start, CHESS_BOARD* chess_board)
 			// add the points of the piece taken
 			if ((chess_board->row[start.row].col[i] & PIECE_COLOR_BIT_MASK) == ((chess_board->row[start.row].col[start.col] & PIECE_COLOR_BIT_MASK) ^ PIECE_COLOR_BIT_MASK))
 			{
-				possible_moves.points = chess_board->row[start.row].col[start.col] & PIECE_POINT_VALUE_MASK;
+				possible_moves.points = chess_board->row[start.row].col[start.col] & POSSIBLE_MOVE_PIECE;
 			}
 		}
 		// Prevent jumping over pieces
@@ -190,7 +190,7 @@ POSSIBLE_MOVES possible_tower_move(POSITION start, CHESS_BOARD* chess_board)
 			// add the points of the piece taken
 			if ((chess_board->row[start.row].col[i] & PIECE_COLOR_BIT_MASK) == ((chess_board->row[start.row].col[start.col] & PIECE_COLOR_BIT_MASK) ^ PIECE_COLOR_BIT_MASK))
 			{
-				possible_moves.points = chess_board->row[start.row].col[start.col] & PIECE_POINT_VALUE_MASK;
+				possible_moves.points = chess_board->row[start.row].col[start.col] & POSSIBLE_MOVE_PIECE;
 			}
 
 		}
@@ -219,7 +219,7 @@ POSSIBLE_MOVES possible_tower_move(POSITION start, CHESS_BOARD* chess_board)
 			// add the points of the piece taken
 			if ((chess_board->row[start.row].col[i] & PIECE_COLOR_BIT_MASK) == ((chess_board->row[start.row].col[start.col] & PIECE_COLOR_BIT_MASK) ^ PIECE_COLOR_BIT_MASK))
 			{
-				possible_moves.points = chess_board->row[start.row].col[start.col] & PIECE_POINT_VALUE_MASK;
+				possible_moves.points = chess_board->row[start.row].col[start.col] & POSSIBLE_MOVE_PIECE;
 			}
 
 		}
@@ -246,7 +246,7 @@ POSSIBLE_MOVES possible_tower_move(POSITION start, CHESS_BOARD* chess_board)
 			// add the points of the piece taken
 			if ((chess_board->row[start.row].col[i] & PIECE_COLOR_BIT_MASK) == ((chess_board->row[start.row].col[start.col] & PIECE_COLOR_BIT_MASK) ^ PIECE_COLOR_BIT_MASK))
 			{
-				possible_moves.points = chess_board->row[start.row].col[start.col] & PIECE_POINT_VALUE_MASK;
+				possible_moves.points = chess_board->row[start.row].col[start.col] & POSSIBLE_MOVE_PIECE;
 			}
 
 		}

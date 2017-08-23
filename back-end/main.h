@@ -32,6 +32,8 @@ struct CHESS_BOARD {
 	unsigned int current_turn;
 	char player_1[255];
 	char player_2[255];
+	unsigned int player_1_points;
+	unsigned int player_2_points;	
 	
 };
 typedef struct CHESS_BOARD CHESS_BOARD;

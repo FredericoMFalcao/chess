@@ -5,6 +5,7 @@
 #include "../pieces/chess_pieces.h"
 #include "../pieces/possible_moves.h"
 #include "../pieces/allowed_moves.h"
+#include "../pieces/piece_value.h"
 #include "boards.h"
 
 

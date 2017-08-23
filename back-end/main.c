@@ -40,21 +40,28 @@ int main(int argc, char**argv)
 
 	size_t command_length = 0;
 	
-	// Init Strings
+	// Init real_board
+	// ---------------
 	strcpy(&real_board.player_1[0],"white player");
 	strcpy(&real_board.player_2[0],"black player");
+	
+	real_board.player_1_points = PAWN_POINTS * 8 + TOWER_POINTS * 2 + BISHOP_POINTS * 2 + HORSE_POINTS * 2 + QUEEN_POINTS + KING_POINTS;
+	real_board.player_2_points = PAWN_POINTS * 8 + TOWER_POINTS * 2 + BISHOP_POINTS * 2 + HORSE_POINTS * 2 + QUEEN_POINTS + KING_POINTS;
+	
+	
 
 	// Assign the running mode
+	// ------------------------
 	for(int i = 1; i < argc; i++)
 	{
 
-		if (strcmp(argv[i],"--test-1") == 0) running_mode |= RUNNING_MODE_TEST_1;		
-		if (strncmp(argv[i],"--first-player=",14) == 0) strcpy(real_board.player_1, &argv[i][15]);
-		if (strncmp(argv[i],"--second-player=",15) == 0) strcpy(real_board.player_2, &argv[i][16]);
-		if (strncmp(argv[i],"--load-from-file=",17) == 0) {strcpy(load_from_file, &argv[i][17]);}
-		if (strncmp(argv[i],"--save-to-file=",15) == 0) {strcpy(save_to_file, &argv[i][15]);}
-		if (strncmp(argv[i],"--script",8) == 0) {exec_mode = EXEC_MODE_SCRIPT;}
-		if (strncmp(argv[i],"--command=",10) == 0) {command = malloc(strlen(argv[i])); strcpy(command, &argv[i][10]);}
+		if (strcmp(argv[i],"--test-1") == 0) 				running_mode |= RUNNING_MODE_TEST_1;		
+		if (strncmp(argv[i],"--first-player=",14) == 0) 	strcpy(real_board.player_1, &argv[i][15]);
+		if (strncmp(argv[i],"--second-player=",15) == 0) 	strcpy(real_board.player_2, &argv[i][16]);
+		if (strncmp(argv[i],"--load-from-file=",17) == 0) 	{strcpy(load_from_file, &argv[i][17]);}
+		if (strncmp(argv[i],"--save-to-file=",15) == 0) 	{strcpy(save_to_file, &argv[i][15]);}
+		if (strncmp(argv[i],"--script",8) == 0) 			{exec_mode = EXEC_MODE_SCRIPT;}
+		if (strncmp(argv[i],"--command=",10) == 0) 			{command = malloc(strlen(argv[i])); strcpy(command, &argv[i][10]);}
 		
 	}
 

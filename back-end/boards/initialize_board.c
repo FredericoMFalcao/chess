@@ -11,44 +11,44 @@ void initialize_board(CHESS_BOARD * chess_board)
 	
 	// 1. Set the white pieces       
 	// -----------------------       
-	chess_board->row[BOTTOM_ROW].col[0] = WHITE_PIECE  |  TOWER_PIECE  |  TOWER_VALUE;  
-	chess_board->row[BOTTOM_ROW].col[1] = WHITE_PIECE  |  HORSE_PIECE  |  HORSE_VALUE;  
-	chess_board->row[BOTTOM_ROW].col[2] = WHITE_PIECE  |  BISHOP_PIECE  |  BISHOP_VALUE;  
-	chess_board->row[BOTTOM_ROW].col[3] = WHITE_PIECE  |  QUEEN_PIECE  |  QUEEN_VALUE;  
-	chess_board->row[BOTTOM_ROW].col[4] = WHITE_PIECE  |  KING_PIECE  |  KING_VALUE;  
-	chess_board->row[BOTTOM_ROW].col[5] = WHITE_PIECE  |  BISHOP_PIECE  |  BISHOP_VALUE;  
-	chess_board->row[BOTTOM_ROW].col[6] = WHITE_PIECE  |  HORSE_PIECE  |  HORSE_VALUE;  
-	chess_board->row[BOTTOM_ROW].col[7] = WHITE_PIECE  |  TOWER_PIECE  |  TOWER_VALUE;  
+	chess_board->row[BOTTOM_ROW].col[0] = WHITE_PIECE  |  TOWER_PIECE ;
+	chess_board->row[BOTTOM_ROW].col[1] = WHITE_PIECE  |  HORSE_PIECE ;
+	chess_board->row[BOTTOM_ROW].col[2] = WHITE_PIECE  |  BISHOP_PIECE ;
+	chess_board->row[BOTTOM_ROW].col[3] = WHITE_PIECE  |  QUEEN_PIECE ;
+	chess_board->row[BOTTOM_ROW].col[4] = WHITE_PIECE  |  KING_PIECE ;
+	chess_board->row[BOTTOM_ROW].col[5] = WHITE_PIECE  |  BISHOP_PIECE ;
+	chess_board->row[BOTTOM_ROW].col[6] = WHITE_PIECE  |  HORSE_PIECE ;
+	chess_board->row[BOTTOM_ROW].col[7] = WHITE_PIECE  |  TOWER_PIECE ;
 
-	chess_board->row[BOTTOM_ROW+1].col[0] = WHITE_PIECE  |  PAWN_PIECE  |  PAWN_VALUE;  
-	chess_board->row[BOTTOM_ROW+1].col[1] = WHITE_PIECE  |  PAWN_PIECE  |  PAWN_VALUE;  
-	chess_board->row[BOTTOM_ROW+1].col[2] = WHITE_PIECE  |  PAWN_PIECE  |  PAWN_VALUE;  
-	chess_board->row[BOTTOM_ROW+1].col[3] = WHITE_PIECE  |  PAWN_PIECE  |  PAWN_VALUE;  
-	chess_board->row[BOTTOM_ROW+1].col[4] = WHITE_PIECE  |  PAWN_PIECE  |  PAWN_VALUE;  
-	chess_board->row[BOTTOM_ROW+1].col[5] = WHITE_PIECE  |  PAWN_PIECE  |  PAWN_VALUE;  
-	chess_board->row[BOTTOM_ROW+1].col[6] = WHITE_PIECE  |  PAWN_PIECE  |  PAWN_VALUE;  
-	chess_board->row[BOTTOM_ROW+1].col[7] = WHITE_PIECE  |  PAWN_PIECE  |  PAWN_VALUE;  
+	chess_board->row[BOTTOM_ROW+1].col[0] = WHITE_PIECE  |  PAWN_PIECE ;
+	chess_board->row[BOTTOM_ROW+1].col[1] = WHITE_PIECE  |  PAWN_PIECE ;
+	chess_board->row[BOTTOM_ROW+1].col[2] = WHITE_PIECE  |  PAWN_PIECE ;
+	chess_board->row[BOTTOM_ROW+1].col[3] = WHITE_PIECE  |  PAWN_PIECE ;
+	chess_board->row[BOTTOM_ROW+1].col[4] = WHITE_PIECE  |  PAWN_PIECE ;
+	chess_board->row[BOTTOM_ROW+1].col[5] = WHITE_PIECE  |  PAWN_PIECE ;
+	chess_board->row[BOTTOM_ROW+1].col[6] = WHITE_PIECE  |  PAWN_PIECE ;
+	chess_board->row[BOTTOM_ROW+1].col[7] = WHITE_PIECE  |  PAWN_PIECE ;
 
 
 	// 2. Set the black pieces       
 	// -----------------------       
-	chess_board->row[TOP_ROW].col[0] = BLACK_PIECE  |  TOWER_PIECE |  TOWER_VALUE;  
-	chess_board->row[TOP_ROW].col[1] = BLACK_PIECE  |  HORSE_PIECE |  HORSE_VALUE;  
-	chess_board->row[TOP_ROW].col[2] = BLACK_PIECE  |  BISHOP_PIECE |  BISHOP_VALUE;  
-	chess_board->row[TOP_ROW].col[3] = BLACK_PIECE  |  QUEEN_PIECE |  QUEEN_VALUE;  
-	chess_board->row[TOP_ROW].col[4] = BLACK_PIECE  |  KING_PIECE |  KING_VALUE;  
-	chess_board->row[TOP_ROW].col[5] = BLACK_PIECE  |  BISHOP_PIECE |  BISHOP_VALUE;  
-	chess_board->row[TOP_ROW].col[6] = BLACK_PIECE  |  HORSE_PIECE |  HORSE_VALUE;  
-	chess_board->row[TOP_ROW].col[7] = BLACK_PIECE  |  TOWER_PIECE |  TOWER_VALUE;  
+	chess_board->row[TOP_ROW].col[0] = BLACK_PIECE  |  TOWER_PIECE;
+	chess_board->row[TOP_ROW].col[1] = BLACK_PIECE  |  HORSE_PIECE;
+	chess_board->row[TOP_ROW].col[2] = BLACK_PIECE  |  BISHOP_PIECE;
+	chess_board->row[TOP_ROW].col[3] = BLACK_PIECE  |  QUEEN_PIECE;
+	chess_board->row[TOP_ROW].col[4] = BLACK_PIECE  |  KING_PIECE;
+	chess_board->row[TOP_ROW].col[5] = BLACK_PIECE  |  BISHOP_PIECE;
+	chess_board->row[TOP_ROW].col[6] = BLACK_PIECE  |  HORSE_PIECE;
+	chess_board->row[TOP_ROW].col[7] = BLACK_PIECE  |  TOWER_PIECE;
 
-	chess_board->row[TOP_ROW-1].col[0] = BLACK_PIECE  |  PAWN_PIECE |  PAWN_VALUE;  
-	chess_board->row[TOP_ROW-1].col[1] = BLACK_PIECE  |  PAWN_PIECE |  PAWN_VALUE;  
-	chess_board->row[TOP_ROW-1].col[2] = BLACK_PIECE  |  PAWN_PIECE |  PAWN_VALUE;  
-	chess_board->row[TOP_ROW-1].col[3] = BLACK_PIECE  |  PAWN_PIECE |  PAWN_VALUE;  
-	chess_board->row[TOP_ROW-1].col[4] = BLACK_PIECE  |  PAWN_PIECE |  PAWN_VALUE;  
-	chess_board->row[TOP_ROW-1].col[5] = BLACK_PIECE  |  PAWN_PIECE |  PAWN_VALUE;  
-	chess_board->row[TOP_ROW-1].col[6] = BLACK_PIECE  |  PAWN_PIECE |  PAWN_VALUE;  
-	chess_board->row[TOP_ROW-1].col[7] = BLACK_PIECE  |  PAWN_PIECE |  PAWN_VALUE;  
+	chess_board->row[TOP_ROW-1].col[0] = BLACK_PIECE  |  PAWN_PIECE;
+	chess_board->row[TOP_ROW-1].col[1] = BLACK_PIECE  |  PAWN_PIECE;
+	chess_board->row[TOP_ROW-1].col[2] = BLACK_PIECE  |  PAWN_PIECE;
+	chess_board->row[TOP_ROW-1].col[3] = BLACK_PIECE  |  PAWN_PIECE;
+	chess_board->row[TOP_ROW-1].col[4] = BLACK_PIECE  |  PAWN_PIECE;
+	chess_board->row[TOP_ROW-1].col[5] = BLACK_PIECE  |  PAWN_PIECE;
+	chess_board->row[TOP_ROW-1].col[6] = BLACK_PIECE  |  PAWN_PIECE;
+	chess_board->row[TOP_ROW-1].col[7] = BLACK_PIECE  |  PAWN_PIECE;
 
 
 
