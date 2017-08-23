@@ -12,12 +12,11 @@ void parse_command(char *command)
 		output("It's your turn! Type 'move X0 X0' to move one of your pieces.", OUTPUT_MODE_STATUS);
 		
 		return ;
-	}
-	
+	}	
 	else if(strncmp(command, "move", 4) == 0)
 	{
 		
-
+		// Check if the coordinates provided are valid		
 		if (command[6] > '8' || command[6] < '1' 
 			||
 			command[5] > 'h' || command[5] < 'a'
@@ -79,18 +78,15 @@ void parse_command(char *command)
 		
 		
 		return ;
-	}
-	
+	}	
 	else if(strncmp(command, "print-json", 10) == 0)
 	{
 		print_board_json(&real_board);
 	}	
-
 	else if(strncmp(command, "print", 5) == 0)
 	{
 		print_board(&real_board);
-	}
-	
+	}	
 	else if(strncmp(command, "hint", 4) == 0)
 	{
 		hint(&real_board);

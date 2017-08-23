@@ -38,8 +38,8 @@
 <div>
 		 <!-- Nav tabs -->
 	  <ul class="nav nav-tabs" role="tablist">
-	    <li role="presentation" class="active"><a href="javascript:void(0);" data-target="#gui" role="tab" data-toggle="tab">GUI</a></li>
-	    <li role="presentation"><a href="javascript:void(0);" data-target="#cli"  role="tab" data-toggle="tab">CLI</a></li>
+	    <li role="presentation" class="active"><a href="javascript:void(0);" data-target="#gui" role="tab" data-toggle="tab">Board</a></li>
+	    <li role="presentation"><a href="javascript:void(0);" data-target="#cli"  role="tab" data-toggle="tab">Console</a></li>
 	  </ul>
 	 <div class="tab-content">
 
@@ -137,7 +137,12 @@
 		<div role="tabpanel" class="tab-pane" id="cli"  >
 
 			<form method="GET" action="/" onsubmit="send_command(this);return false;">
-				<input type="text" class="form-control" name="command" placeholder="type your command here ..." />
+				<div class="input-group">
+					  <input type="text" class="form-control" name="command" placeholder="type your command here ..." />
+				      <span class="input-group-btn">
+				        <button class="btn btn-default" type="button">Send</button>
+				      </span>				      
+				</div><!-- /input-group -->
 			</form>
 			<pre id="console_output" style="max-height:600px; overflow-y:scroll;">
 			</pre>

@@ -31,7 +31,7 @@ jQuery('table#board td').on('click', function() {
 				// Send the move intention to the server
 				send_command("move "+window.fromCell+" "+window.toCell, function(response_data){
 
-					// Force the browser to get the new board state
+					// Force the browser to get the new board state after the move
 					// if the response was not an error
 					if (response_data.status != 3)
 						update_board();
