@@ -1,0 +1,1 @@
+unsigned int piece_value(unsigned int piece);
