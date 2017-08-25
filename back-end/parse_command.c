@@ -120,7 +120,44 @@ void parse_command(char *command)
 		output(status_message, OUTPUT_MODE_STATUS);		
 
 	}
+	else if(strncmp(command, "possible-moves",14) == 0)
+	{
+		POSSIBLE_MOVES possible_moves;
+		possible_moves.total = 0;
+		
+		// Check that the coordinates provided are valid		
+		if (command[16] > '8' || command[16] < '1' 
+			||
+			command[15] > 'h' || command[15] < 'a'
+			)
+		{
+			output("ERROR: please use 'possible-moves X0' format", OUTPUT_MODE_ERROR);
+			return;
+		}
+		
+		// Convert ASCII to numbers 
+		start.row = command[16]-'1';
+		start.col = command[15]-'a';
 
+		
+		
+		if (0) {}
+		else if ((real_board.row[start.row].col[start.col] & PIECE_BIT_MASK) == PAWN_PIECE ) 	possible_moves = possible_pawn_move(start, &real_board);
+		else if ((real_board.row[start.row].col[start.col] & PIECE_BIT_MASK) == TOWER_PIECE ) 	possible_moves = possible_tower_move(start, &real_board);
+		else if ((real_board.row[start.row].col[start.col] & PIECE_BIT_MASK) == HORSE_PIECE ) 	possible_moves = possible_horse_move(start, &real_board);
+		else if ((real_board.row[start.row].col[start.col] & PIECE_BIT_MASK) == BISHOP_PIECE )  possible_moves = possible_bishop_move(start, &real_board);
+		else if ((real_board.row[start.row].col[start.col] & PIECE_BIT_MASK) == QUEEN_PIECE ) 	possible_moves = possible_queen_move(start, &real_board);
+		else if ((real_board.row[start.row].col[start.col] & PIECE_BIT_MASK) == KING_PIECE ) 	possible_moves = possible_king_move(start, &real_board);
+
+		printf("Total possible moves: %d", possible_moves.total);
+
+		for(i = 0; i < possible_moves.total; i++)
+		{
+			printf("Possible move: %c%c\n", possible_moves.end_position[i].row+'1',possible_moves.end_position[i].col+'a');
+		}
+		
+		
+	}
 	
 	else
 	{	

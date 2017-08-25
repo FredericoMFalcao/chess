@@ -14,5 +14,7 @@ pieces.o : pieces/main.c pieces/chess_pieces.h pieces/allowed_moves.c pieces/pos
 	$(CC) -c -o pieces.o pieces/main.c
 
 verbal_comments.o: verbal_comments/verbal_comments.c verbal_comments/verbal_comments.h main.h
-		$(CC) -c -o verbal_comments.o verbal_comments/verbal_comments.c
+	$(CC) -c -o verbal_comments.o verbal_comments/verbal_comments.c
 
+ai.o: ai/ai_1/main.c ai/ai_1/main.h
+	$(CC) -c -o ai.o ai/ai_1/main.c

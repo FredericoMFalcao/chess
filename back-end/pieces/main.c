@@ -3,6 +3,7 @@
 // -----------------------
 #include "../main.h"
 #include "chess_pieces.h"
+#include "piece_value.h"
 
 //
 // CONTENT files
