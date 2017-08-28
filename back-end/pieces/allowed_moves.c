@@ -45,6 +45,8 @@ unsigned int is_legal_pawn_move(POSITION start, POSITION end, CHESS_BOARD *chess
 			||
 			(((piece & PIECE_COLOR_BIT_MASK) == BLACK_PIECE) && start.row == 6 && abs(end.row - start.row) < -2)
 			||
+			(((piece & PIECE_COLOR_BIT_MASK) == BLACK_PIECE) && start.row < 7 && (end.row - start.row) != -1)
+			||
 			(end.col != start.col)
 			)
 		{
