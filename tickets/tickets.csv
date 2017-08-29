@@ -1,0 +1,31 @@
+#	Type	Group	Title	Description	State
+1	Improvement	Frontend	Display list of taken chess pieces	Add a column next to the board table that displays two rows with the images of black and white pieces taken	Done
+1.1	Improvement	Frontend		Make the repeated pieces show up only once and display a nice “x2”, or “x3” next to the piece	Not Done
+2	Improvement	Backend	Calculate points for each player for each board state	"Add the variables: **points_player_1** and **points_player_2** to help AI know which board states are better than others
+
+Piece values:
+Pawn 1
+Horse 2
+Tower, Bishop 4
+Queen 8
+King 12"	Done
+3	Improvement	Frontend	Settings Menu	"Add a settings menu tab where a user can define his own parameters for the AI part of the game
+
+Let user:
+choose to see Board labels
+choose the player’s names"	Not Done
+4	Bug	Backend	Restrict Pawn Move	Moving pawn front-left and front-right to an empty house is possible, but under standard chess rules is not allowed.	Done
+5	Improvement	Backend	Add capability to generate a png version of the board state	Use libpng to combine **front-end/chess_board.png** and **front-end/chess_piece.png**	Not Done
+6	New Feature	Backend	Reset Board	Allow the user to reset the game with command “reset”	Done
+7	New Feature	Backend	AI Method #1: Decision tree	
+- __Defend first__: check if there is a chance that one of my pieces will be eaten on the next turn
+
+- __Attack next__ : check if there is a chance to eat one of the opponent’s pieces right now
+
+Move game forward: check if it is possible to advance a pawn, "	Not Done
+7.1	New Feature	Backend	get_possible_moves()	Function that gets as input a coordinate, and depending on the piece there returns a list of coordinates where that piece can move to.	Not Done
+8	Improvement	Frontend	Console Log	"Force lines that are listed in the output to have a subject, like so:
+[ERROR] This is an error message.
+[STATUS] This is a status message.
+
+and possibly a color"	Not Done
